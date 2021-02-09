@@ -1,0 +1,103 @@
+\documentclass[12pt, a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[portuguese]{babel}
+\usepackage{titlesec}
+\usepackage{titling}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\graphicspath{{./images/} {/home/victor/Pictures/latex/}}
+\usepackage{wrapfig}
+\usepackage{fancyhdr}
+\usepackage{colortbl}
+\usepackage{color}
+\usepackage{framed}
+\usepackage{enumitem}
+\usepackage{amsmath}
+\usepackage{lastpage}
+\usepackage[hyphens]{url}
+\usepackage{hyperref}
+\usepackage[brazilian,hyperpageref]{backref}
+\usepackage[num,overcite,abnt-emphasize=bf]{abntex2cite}
+%%\usepackage[alf,abnt-emphasize=bf]{abntex2cite}
+%%\citebrackets()
+\citebrackets[]
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=black,
+	filecolor=magenta,      
+	urlcolor=blue,
+	citecolor=black,
+}
+
+%% Definindo o Autor e o título
+\newcommand{\prof}{Rômulo César Silva}
+\newcommand{\materia}{Algoritimos e Estruturas de dados}
+
+\author{Victor Emanuel Almeida\and Milena Lucas Dos Santos\and Marco Aurélio Guerra Pedroso}
+\title{1$^{\underbar{o}}$ Trabalho de \materia}
+\date{\today}
+
+%% zera a pagina
+\fancyfoot[C]{}
+%% linhas no inicio e fim da página
+\renewcommand{\headrulewidth}{0.7pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+\begin{document}
+\begin{titlepage}
+	\centering
+	\thispagestyle{fancy}
+
+	\begin{minipage}{0.4\textwidth}
+		\begin{flushleft}
+			\includegraphics[scale=0.6]{logo_unioeste.jpg}\\[1.0 cm]
+		\end{flushleft}
+	\end{minipage}
+	\begin{minipage}{0.5\textwidth}
+		\begin{flushright}\large
+			\textsc{\LARGE\textbf{UNIOESTE}}\\
+			\vspace{1cm}
+			Universidade Estadual\\do Oeste do Paraná
+		\end{flushright}
+	\end{minipage}
+	%\rule{\textwidth}{.5pt}\\[2.0 cm]
+	\vspace*{4.5 cm}
+
+	{\huge\bfseries\thetitle}\\
+	\rule{\linewidth}{0.2 mm}\\[1.5 cm]
+	
+	\vspace{2cm}
+	\begin{minipage}[t]{0.4\textwidth}
+		\begin{flushleft}\large
+			\emph{Professor:}\\
+			\prof\\
+		\end{flushleft}
+	\end{minipage}
+	\begin{minipage}[t]{0.5\textwidth}
+
+		\begin{flushright}\large
+			\emph{Grupo:}\\
+			\theauthor
+		\end{flushright}
+
+	\end{minipage}\\[2 cm]
+	
+	\vfill\thedate
+	\end{titlepage}
+
+	\pagestyle{fancy}
+	%\fancyfoot[L]{Aluno(s):~\theauthor}
+	%\fancyfoot[R]{Prof:~\prof}
+	\fancyfoot[L]{}
+	\fancyfoot[R]{página~\thepage~de~\pageref{LastPage}}
+	\fancyhead[L]{}
+	\fancyhead[R]{}
+
+	\tableofcontents
+	\newpage
+
+	\section{Estruturas de Dados}\label{Estruturas de Dados}
+
+	\section{Uso do software}\label{Uso do software}
+\end{document}
