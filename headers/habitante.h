@@ -13,4 +13,9 @@ typedef struct {
 	short int prioridade; // OBG
 }People;
 
+typedef struct no {
+	People dado;
+	struct no *prox;
+}Lista;
+
 #endif
