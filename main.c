@@ -7,6 +7,6 @@ int main (int argc, char *argv[]) {
 		//ler arquivo
 		populacao = readFile(argv[1], populacao);
 	}
-	imprimir(populacao);
+	printList(populacao);
 	return 0;
 }
