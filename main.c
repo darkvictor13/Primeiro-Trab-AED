@@ -3,7 +3,7 @@
 #include "headers/print_stdio.h"
 #include "headers/menu.h"
 
-#include "structures/vaccine_stock_structure.h"
+#include "structures/registry_structure.h"
 
 int main (int argc, char *argv[]) {
     List *population = NULL;
@@ -21,11 +21,7 @@ int main (int argc, char *argv[]) {
         }
     }
 
-    initMessage();
-    
     menuController();
-
-    endMessage();
    
     return 0;
 }

@@ -13,58 +13,6 @@ void thisOption(char* string, int selected) {
     printf("] %s\n", string);
 }
 
-char getChar() {
-
-	char character = 0;
-	struct termios old = {0};
-
-	fflush(stdout);
-
-	if(tcgetattr(0, &old)<0) {
-		perror("tcsetattr()");
-	}
-
-	old.c_lflag&=~ICANON;
-	old.c_lflag&=~ECHO;
-	old.c_cc[VMIN]=1;
-	old.c_cc[VTIME]=0;
-
-	if(tcsetattr(0, TCSANOW, &old)<0) {
-		perror("tcsetattr ICANON");
-	}
-
-	if(read(0,&character,1)<0) {
-		perror("read()");
-	}
-
-	old.c_lflag|=ICANON;
-	old.c_lflag|=ECHO;
-
-	if(tcsetattr(0, TCSADRAIN, &old)<0) {
-		perror ("tcsetattr ~ICANON");
-	}
-
-	return character;
-}
-
-void line (int lineLength) {
-
-	printf("|");
-
-	for (int i = 0; i < lineLength; i++) {
-		printf("-");
-	}
-
-	printf("|\n");
-}
-
-void fillSpaces (int numberOfSpaces) {
-	
-	for (int i = 0; i < numberOfSpaces; i++) {
-		printf(" ");
-	}
-}
-
 void initMessage() {
 
     system("clear");
@@ -84,6 +32,8 @@ void menuController() {
 
     int option = 0;
     char selected;
+    
+    initMessage();
 
     system("clear");
     menuMessage(option);
@@ -102,24 +52,31 @@ void menuController() {
 
         if( selected == ENTER ) {
             if( option == 0 ) {
+                registerHabitant();
             }
 
             if( option == 1 ) {
+                registerVaccination();
             }
 
             if( option == 2 ) {
+                removeHabitant();
             }
             
             if( option == 3 ) {
+                releaseGroup();
             }
 
             if( option == 4 ) {
+                controlStock();
             }
 
             if( option == 5 ) {
+                reports();
             }
 
             if( option == 6 ) {
+                endMessage();
                 return;
             }
         }

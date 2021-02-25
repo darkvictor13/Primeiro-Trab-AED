@@ -24,9 +24,6 @@ void removeLast(List *list) {
       list = list->next;
    }
 
-   // l == penúltimo item da lista
-   // l->prox é o ultimo item da lista
-   
    free(list->next);
    
    list->next = NULL;

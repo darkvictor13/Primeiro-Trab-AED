@@ -1,6 +1,5 @@
 # Primeiro Trabalho de Algoritmos e Estrutura de Dados
 
-
 # Requisitos
 
 Data de entrega: 09/3/2021
@@ -9,8 +8,8 @@ Desenvolvido em linguagem C.
 
 Sistema de gerenciamento de vacinas
 
-- Informacoes apenas na memoria
-- Apenas usar interface por linha de comandos
+- Informações apenas na memória
+- Interface por linha de comandos
 
 - Cadastro
    - nome*
@@ -25,9 +24,11 @@ Sistema de gerenciamento de vacinas
 
    *requerido
 
-- Retirar habitante em funcao do cpf
+# Funcionalidades
 
-- Liberar grupo para a vacinacao
+- Retirar habitante em função do cpf
+
+- Liberar grupo para vacinação
 
 - Controle de estoque
    - coronavac
@@ -36,34 +37,35 @@ Sistema de gerenciamento de vacinas
    - pfizer
    - moderna
 
-- Opsao de registtrar vacinacao a partir do cpf
-   - se pertence ao grupo prioritario
-      - se a vacina esta diponivel
-      - vacinado
-      - registra a data de vacinacao
-      - tipo de vacina 
-      - dose
+- Opsão de registrar vacinação a partir do cpf
+   - se pertence ao grupo prioritario e a vacina esta diponível
+      - a pessoa é vacinada
+      - é registra a data de vacinacao, o tipo de vacina e a dose
 
-   - caso a pessoa nao pertenca ao grupo
-      - emite mensafgem negando a vacina;'ao
+   - caso a pessoa não pertença ao grupo
+      - emite messagem negando a vacinação
 
    - se ja tomou dua doses
+      - emite messagem negando a vacinação
 
    - se o estoque esta vacio
+      - emite messagem negando a vacinação
 
 - Adicionar ao estoque um conjunto de vacinas
 
 - Emitir relatorios
-   - numero de doses em estoque
-   - lista de habitantes vacinados 1 dose
-   - lista de habitantes vacinados 2 dose 
-   - lista de habitantes vacinados nenhuma
-   - numero de habitantes por grupo
+   - número de doses em estoque
+   - lista de habitantes vacinados com 1 dose
+   - lista de habitantes vacinados com 2 dose 
+   - lista de habitantes sem vacinar
+   - número de habitantes por grupo
 
-- Ler informacoes de abiatntes apartir de arquivo de texto
+- Ler informacoes de habitantes apartir de arquivo de texto
+
+# Entrega
 
 - Criar relatorio do trabalho
    - nome dos integrantes
-   - instrucoes para execucao do programa
-   - descricao de estruturas e funcionalidades
+   - instruções para execução do programa
+   - descrição das estruturas e funcionalidades
 
