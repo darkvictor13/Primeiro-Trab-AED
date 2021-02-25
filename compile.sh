@@ -1,5 +1,5 @@
 #!/bin/sh
 
-gcc main.c sources/*.c -o main.out -lm
+gcc main.c sources/*.c -o main.x -lm
 
 exit 0

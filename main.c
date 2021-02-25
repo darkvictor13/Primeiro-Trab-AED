@@ -1,12 +1,31 @@
-#include "headers/habitante.h"
-#include "headers/lista.h"
+#include "headers/people_list.h"
+#include "headers/read_file.h"
+#include "headers/print_stdio.h"
+#include "headers/menu.h"
+
+#include "structures/vaccine_stock_structure.h"
 
 int main (int argc, char *argv[]) {
-	Lista *populacao = NULL;
-	if (argc == 2) {
-		//ler arquivo
-		populacao = readFile(argv[1], populacao);
-	}
-	printList(populacao);
-	return 0;
+    List *population = NULL;
+    VaccineStock vaccineStock;
+   
+    if(argc == 2) {
+        population = readFile(argv[1], population);
+    }else{
+        FILE * file;
+        file = fopen ("input","r");
+        
+        if(file != NULL) {
+            fclose (file);
+            population = readFile("input", population);
+        }
+    }
+
+    initMessage();
+    
+    menuController();
+
+    endMessage();
+   
+    return 0;
 }

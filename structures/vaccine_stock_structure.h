@@ -1,5 +1,5 @@
-#ifndef VACINA
-#define VACINA
+#ifndef VACCINE_STOCK_STRUCTURE
+#define VACCINE_STOCK_STRUCTURE
 
 typedef struct {
 	int coronavac;
@@ -7,6 +7,6 @@ typedef struct {
 	int sputnik;
 	int pfizer;
 	int moderna;
-}Vacina;
+}VaccineStock;
 
 #endif
