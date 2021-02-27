@@ -6,22 +6,23 @@
 #include "structures/registry_structure.h"
 
 int main (int argc, char *argv[]) {
-    List *population = NULL;
-    VaccineStock vaccineStock;
+    Registry registry;
    
     if(argc == 2) {
-        population = readFile(argv[1], population);
+        registry.people = readFile(argv[1], registry.people);
     }else{
-        FILE * file;
+        FILE *file;
         file = fopen ("input","r");
         
         if(file != NULL) {
             fclose (file);
-            population = readFile("input", population);
+            registry.people = readFile("input", registry.people);
         }
     }
 
     menuController();
+   
+    printList(registry.people);
    
     return 0;
 }

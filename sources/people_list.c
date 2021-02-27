@@ -19,7 +19,7 @@ List *insert(List *head, Person data) {
    return head;
 }
 
-void removeLast(List *list) {
+void freeList(List *list) {
    while (list->next->next != NULL) {
       list = list->next;
    }

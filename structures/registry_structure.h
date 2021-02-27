@@ -12,7 +12,7 @@ typedef struct {
 }VaccineStock;
 
 typedef struct {
-	List *goups[5];
+	List *people;
 	VaccineStock vaccineStock;
 	int validGroup;
 }Registry;

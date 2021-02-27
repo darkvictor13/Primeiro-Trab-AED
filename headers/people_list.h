@@ -47,7 +47,7 @@ List *insert(List *list, Person data);
 *
 * @return - nenhum
 */
-void removeLast(List *list);
+void freeList(List *list);
 
 /**
 * Function - informa se uma string se encontra vazia

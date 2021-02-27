@@ -56,7 +56,7 @@ Sistema de gerenciamento de vacinas
 - Emitir relatorios
    - número de doses em estoque
    - lista de habitantes vacinados com 1 dose
-   - lista de habitantes vacinados com 2 dose 
+   - lista de habitantes vacinados com 2 dose
    - lista de habitantes sem vacinar
    - número de habitantes por grupo
 

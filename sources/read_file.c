@@ -60,7 +60,6 @@ int readPerson(FILE *file, Person *data) {
    
    fscanf(file, "%hd%*r", &data->priority);
 
-   //leitura de 1 habitante realizada com sucesso
    return 1;
 }
 
@@ -69,7 +68,6 @@ List *readFile(char *fn, List *list) {
    
    if (file == NULL) {
       printf("Nome do arquivo inválido.\n");
-
       return list;
    }
 
@@ -79,15 +77,14 @@ List *readFile(char *fn, List *list) {
    
    List *newList = list;
    
-   // enquanto conseguir ler novas pessoas continua a leitura
    while (readPerson(file, &newList->data)) {
-      // o último elemento saí com espaço alocado
       newList->next = allocPerson();
       newList = newList->next;
    }
 	
-   removeLast(list);
+   freeList(list);
 	
    fclose(file);
+
    return list;
 }
