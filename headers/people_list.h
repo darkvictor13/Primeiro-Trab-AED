@@ -7,6 +7,9 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+
+List* createList();
+
 /**
 * Function - aloca o espaço de memória necessário para armazenar uma pessoa
 *
@@ -19,7 +22,7 @@
 *
 * @return - o local de memória alocado para uma pessoa
 */
-List* allocPerson();
+Node* allocPerson();
 
 /**
 * Function - insere um elemento no final da lista
@@ -31,9 +34,9 @@ List* allocPerson();
 * @pre-conditions - a lista não deve estar vazia
 * @pos-conditions - a lista possui um elemento a mais no seu final
 *
-* @return - o local de memória onde se encontra a cabeça da lista
+* @return - void
 */
-List *insert(List *list, Person data);
+void insert(List *list, Person data);
 
 /**
 * Function - remove o último elemento da lista

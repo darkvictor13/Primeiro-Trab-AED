@@ -8,20 +8,25 @@
 #define LEN_PHONE 20
 
 typedef struct {
-   char *name; // required
-   int age; // required
-   char genre; // required
-   char rg[LEN_RG]; // required
-   char cpf[LEN_CPF]; // required
-   char phone[LEN_PHONE];
-   char *address;
-   char *profession;
-   short int priority; // required
+    char *name;         // required
+    int age;            // required
+    char genre;         // required
+    char rg[LEN_RG];    // required
+    char cpf[LEN_CPF];  // required
+    char phone[LEN_PHONE];
+    char *address;
+    char *profession;
+    short int priority; // required
 }Person;
 
 typedef struct node {
-   Person data;
-   struct node *next;
+    Person data;
+    struct node *next;
+}Node;
+
+typedef struct {
+    struct node *head;
+    struct node *tail;
 }List;
 
 #endif
