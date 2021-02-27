@@ -6,15 +6,15 @@
 #include "structures/registry_structure.h"
 
 int main (int argc, char *argv[]) {
-    List *population = NULL;
+    List *population = createList();
     VaccineStock vaccineStock;
-   
+
     if(argc == 2) {
         population = readFile(argv[1], population);
     }else{
         FILE * file;
         file = fopen ("input","r");
-        
+
         if(file != NULL) {
             fclose (file);
             population = readFile("input", population);
@@ -22,6 +22,6 @@ int main (int argc, char *argv[]) {
     }
 
     menuController();
-   
+
     return 0;
 }

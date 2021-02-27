@@ -28,14 +28,12 @@ void printPerson(Person data, char* identation) {
     printf("%sPrioridade: %hd.\n", identation, data.priority);
 }
 
-void printList(List* tail) {
+void printList(List* list) {
     char indentation[5] = "    \0";
 
-    if (tail != NULL) {
+    for (; list->head != NULL; list->head = list->head->next) {
         printf(" /========== Habitantes ==========\\\n");
-        printPerson(tail->data, indentation);
+        printPerson(list->head->data, indentation);
         printf(" \\================================/\n\n");
-
-        printList(tail->next);
     }
 }
