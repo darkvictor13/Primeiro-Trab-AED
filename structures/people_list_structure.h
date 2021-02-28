@@ -11,12 +11,13 @@ typedef struct {
     char *name;         // required
     int age;            // required
     char genre;         // required
-    char rg[LEN_RG];    // required
-    char cpf[LEN_CPF];  // required
-    char phone[LEN_PHONE];
+    char *rg;           // required
+    char *cpf;          // required
+    char *phone;
     char *address;
     char *profession;
     short int priority; // required
+    short int dose;
 }Person;
 
 typedef struct node {

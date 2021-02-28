@@ -24,21 +24,30 @@ void registerHabitant(Registry *registry) {
     scanf("%c", &node->data.genre);
     
     enterDataString("RG: ", node->data.rg);
-
     enterDataString("CPF: ", node->data.cpf);
-
-    enterDataString("RG: ", node->data.rg);
-
     enterDataString("Telefone: ", node->data.phone);
-
     enterDataString("Endereço: ", node->data.address);
-
     enterDataString("Profisão: ", node->data.profession);
 
     printf("Prioridade: [1-5] ");
     scanf("%d", &node->data.priority);
 
-    // confirmar registro o nao
+    if(
+        verifyName(node->data.name) ||
+        verifyAge(node->data.age) ||
+        verifyGenre(node->data.genre) ||
+        verifyRG(node->data.rg) ||
+        verifyCPF(node->data.cpf) ||
+        verifyPhone(node->data.phone) ||
+        verifyAddress(node->data.address) ||
+        verifyProfession(node->data.profession) ||
+        verifyPriority(node->data.priority)
+    ) {
+        node->data.dose = 0;
+        insertPerson(registry->people, node->data);
+    }else{
+
+    }
 
     getChar();
 }
@@ -123,11 +132,46 @@ void controlStock(Registry *registry) {
 void reports(Registry *registry) {
     system(clear);
     printf(" -------------------------\n");
-    printf("     Imprimir registro\n");
+    printf("    Imprimir relatório\n");
     printf(" -------------------------\n\n");
+
+    printf(" Tipos de relatórios: \n");
+    printf(" -------------------\n");
+    printf("    1 - Relatório de estoque.\n");
+    printf("    2 - Habiatntes com a primeira dose.\n");
+    printf("    3 - Habitantes com a segunda dose.\n");
+    printf("    4 - Habitantes sem vacinar.\n");
+    printf("    5 - Habitantes por grupo de risco.\n\n");
+
+    char answer;
+
+    printf(" Selecione um tipo de relatório: [1-5] ");
+    scanf("%c", &answer);
+
+    switch(answer) {
+        case '1':
+            reportStock(&registry->vaccineStock);
+        break;
+
+        case '2':
+            reportFirstDose(registry->people);
+        break;
+        
+        case '3':
+            reportSecondDose(registry->people);
+        break;
+        
+        case '4':
+            reportWithoutVaccine(registry->people);
+        break;
+        
+        case '5':
+            reportGroups(registry->people);
+        break;
+
+        default:
+            printf("Tipo de relatório não identificado.\n");
+    }
+
     getChar();
 }
-
-//void enclose() {
-
-//}

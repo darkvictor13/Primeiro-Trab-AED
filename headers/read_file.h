@@ -7,6 +7,8 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+char* readDataString( FILE *file);
+
 /**
 * Function - realiza a leitura de uma pessoa
 *

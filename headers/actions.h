@@ -3,6 +3,8 @@
 
 #include "../structures/registry_structure.h"
 #include "people_list.h"
+#include "registry.h"
+#include "verify.h"
 #include "utils.h"
 
 #include <stdio.h>
@@ -18,7 +20,5 @@ void releaseGroup(Registry *registry);
 void controlStock(Registry *registry);
 
 void reports(Registry *registry);
-
-//void enclose();
 
 #endif

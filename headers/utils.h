@@ -19,8 +19,8 @@
 
 char getChar();
 
-void line (int lineLength);
+void line(int lineLength);
 
-void fillSpaces (int numberOfSpaces);
+void fillSpaces(int numberOfSpaces);
 
 #endif

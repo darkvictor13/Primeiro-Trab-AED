@@ -12,15 +12,7 @@ List* createList() {
     return new_list;
 }
 
-int isEmptyString(char s[]) {
-    return s[0] == '\0';
-}
-
-int isNull(void * data) {
-    return data == NULL;
-}
-
-void insert(List *list, Person data) {
+void insertPerson(List *list, Person data) {
     Node *new_tail = allocPerson();
     new_tail->next = NULL;
     new_tail->data = data;
@@ -33,6 +25,10 @@ void insert(List *list, Person data) {
         list->tail->next = new_tail;
         list->tail = new_tail;
     }
+}
+
+void removePerson(Node *node) {
+    // node->
 }
 
 Node* searchByCPF(List *list, char *cpf) {
@@ -50,4 +46,24 @@ Node* searchByCPF(List *list, char *cpf) {
         
         this = this->next;
     }
+}
+
+int isEmptyString(char s[]) {
+    return s[0] == '\0';
+}
+
+int isNull(void * data) {
+    return data == NULL;
+}
+
+void freePerson(Person *person) {
+
+}
+
+void freeNode(Node *node) {
+
+}
+
+void freeList(List *list) {
+
 }
