@@ -1,21 +1,23 @@
 #ifndef ACTIONS
 #define ACTIONS
 
+#include "../structures/registry_structure.h"
+#include "people_list.h"
 #include "utils.h"
 
 #include <stdio.h>
 
-void registerHabitant();
+void registerHabitant(Registry *registry);
 
-void registerVaccination();
+void registerVaccination(Registry *registry);
 
-void removeHabitant();
+void removeHabitant(Registry *registry);
 
-void releaseGroup();
+void releaseGroup(Registry *registry);
 
-void controlStock();
+void controlStock(Registry *registry);
 
-void reports();
+void reports(Registry *registry);
 
 //void enclose();
 

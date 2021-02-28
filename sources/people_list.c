@@ -34,3 +34,20 @@ void insert(List *list, Person data) {
         list->tail = new_tail;
     }
 }
+
+Node* searchByCPF(List *list, char *cpf) {
+
+    Node *this = list->head;
+
+    while(1) {
+        if( this == NULL ) {
+            return NULL;
+        }
+        
+        if( 0 == strcmp(this->data.cpf, cpf) ) {
+            return this;
+        }
+        
+        this = this->next;
+    }
+}

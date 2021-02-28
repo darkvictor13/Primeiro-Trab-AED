@@ -15,7 +15,7 @@ void thisOption(char* string, int selected) {
 
 void initMessage() {
 
-    system("clear");
+    system(clear);
 
     printf("\n");
     printf(" ----------------------------------------\n");
@@ -28,14 +28,14 @@ void initMessage() {
     getChar();
 }
 
-void menuController() {
+void menuController(Registry *registry) {
 
     int option = 0;
     char selected;
     
     initMessage();
 
-    system("clear");
+    system(clear);
     menuMessage(option);
 
     selected = getChar();
@@ -52,27 +52,27 @@ void menuController() {
 
         if( selected == ENTER ) {
             if( option == 0 ) {
-                registerHabitant();
+                registerHabitant(registry);
             }
 
             if( option == 1 ) {
-                registerVaccination();
+                registerVaccination(registry);
             }
 
             if( option == 2 ) {
-                removeHabitant();
+                removeHabitant(registry);
             }
             
             if( option == 3 ) {
-                releaseGroup();
+                releaseGroup(registry);
             }
 
             if( option == 4 ) {
-                controlStock();
+                controlStock(registry);
             }
 
             if( option == 5 ) {
-                reports();
+                reports(registry);
             }
 
             if( option == 6 ) {
@@ -81,7 +81,7 @@ void menuController() {
             }
         }
 
-        system("clear");
+        system(clear);
         menuMessage(option);
 
         selected = getChar();
@@ -107,7 +107,7 @@ void menuMessage(int option) {
 
 void endMessage() {
 
-    system("clear");
+    system(clear);
 
     printf("\n");
     printf("-------------------------------------------\n");

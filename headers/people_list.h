@@ -39,6 +39,20 @@ Node* allocPerson();
 void insert(List *list, Person data);
 
 /**
+* Function - busca uma pessoa dentro da lista pelo seu cpf
+*
+* @authors - mGuerra, mLucas, vAlmeida
+* @version - 1.0
+* @since - 1.0
+*
+* @pre-conditions - a lista não deve estar vazia
+* @pos-conditions - nenhuma
+*
+* @return - void
+*/
+Node* searchByCPF(List *list, char *cpf);
+
+/**
 * Function - remove o último elemento da lista
 *
 * @authors - mGuerra, mLucas, vAlmeida

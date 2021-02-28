@@ -1,6 +1,8 @@
 #ifndef UTILS
 #define UTILS
 
+#define clear "clear"
+
 #define UP_DEFAULT 'w'
 #define DOWN_DEFAULT 's'
 #define RIGHT_DEFAULT 'd'
