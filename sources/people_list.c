@@ -27,8 +27,42 @@ void insertPerson(List *list, Person data) {
     }
 }
 
-void removePerson(Node *node) {
-    // node->
+void removeNodeInHead(List *list) {
+    Node *newHead = list->head->next;
+
+    free(list->head);
+    list->head = newHead;
+}
+
+void removeNodeInTail(List *l) {
+    Node *prev_tail = l->head;
+    while(prev_tail->next != l->tail) {
+        prev_tail = prev_tail->next;
+    }
+
+    l->tail = prev_tail;
+    free(prev_tail->next);
+    prev_tail->next = NULL;
+}
+
+void removeNodeInMiddle(List *l, Node *data) {
+    Node *prev_data = l->head;
+    while(prev_data->next != data) {
+        prev_data = prev_data->next;
+    }
+
+    prev_data->next = data->next;
+    free(data);
+}
+
+void removeNode(List *list, Node *node) {
+    if(list->head == node) {
+        removeNodeInHead(list);
+    }else if (list->tail == node) {
+        removeNodeInTail(list);
+    }else {
+        removeNodeInMiddle(list, node);
+    }
 }
 
 Node* searchByCPF(List *list, char *cpf) {

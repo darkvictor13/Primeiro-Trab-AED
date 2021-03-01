@@ -70,7 +70,21 @@ void reportWithoutVaccine(List *people) {
 }
 
 int countGroup(List *people, int group) {
+    Node *this = people->head;
 
+    int count = 0;
+
+    while(1) {
+        if( this == NULL ) {
+            return count;
+        }
+        
+        if( this->data.priority == group ) {
+            count++;
+        }
+        
+        this = this->next;
+    }
 }
 
 void reportGroups(List *people) {
@@ -79,4 +93,9 @@ void reportGroups(List *people) {
     printf("      Relatório de pessoas por grupo\n");
     printf(" ----------------------------------------\n\n");
 
+    int i;
+
+    for(i = 1; i <= 5; i++) {
+        printf("    Grupo %d: %d\n", i, countGroup(people, i));
+    }
 }

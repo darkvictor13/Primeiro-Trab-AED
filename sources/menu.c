@@ -85,6 +85,8 @@ void menuController(Registry *registry) {
         menuMessage(option);
 
         selected = getChar();
+
+        sleep(0.01);
     }
 }
 

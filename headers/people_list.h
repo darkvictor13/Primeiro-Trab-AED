@@ -37,7 +37,14 @@ List* createList();
 */
 void insertPerson(List *list, Person data);
 
-void removePerson(Node *node);
+void removeNodeInHead(List *list);
+
+void removeNodeInTail(List *l);
+
+void removeNodeInMiddle(List *l, Node *data);
+
+void removeNode(List *list, Node *node);
+
 /**
 * Function - busca uma pessoa dentro da lista pelo seu cpf
 *

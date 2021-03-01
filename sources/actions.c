@@ -87,19 +87,17 @@ void removeHabitant(Registry *registry) {
 
     if(person != NULL) {
 
-        char answer;
-        printf("Deseja remover o registro de %s? [Y/N] \n", person->data.name);
-        scanf("%c", answer);
+        char answer[2];
+        printf("Deseja remover o registro de %s? [Y/N] ", person->data.name);
+        scanf("%s", answer);
 
-        if( answer == 'Y' || answer == 'y' ) {
-            //removePerson(person);
+        if( answer[0] == 'Y' || answer[0] == 'y' ) {
+            removeNode(registry->people, person);
         }
 
     }else{
         printf("Pessoa não encontrada.");
     }
-        
-    getChar();
 }
 
 void releaseGroup(Registry *registry) {
