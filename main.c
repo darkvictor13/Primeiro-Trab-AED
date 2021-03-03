@@ -9,7 +9,7 @@ int main (int argc, char *argv[]) {
     
     Registry registry;
     initRegistry(&registry);
-   
+
     if(argc == 2) {
         registry.people = readFile(argv[1], registry.people);
     }else{

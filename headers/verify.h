@@ -1,6 +1,8 @@
 #ifndef VERIFY
 #define VERIFY
 
+#include "../structures/people_list_structure.h"
+
 int verifyName(char* name);
 
 int verifyAge(int age);
@@ -18,5 +20,7 @@ int verifyAddress(char* address);
 int verifyProfession(char* profession);
 
 int verifyPriority(int priority);
+
+int verifyPerson(Person data);
 
 #endif

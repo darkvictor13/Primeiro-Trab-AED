@@ -4,11 +4,23 @@
 #include "../structures/registry_structure.h"
 #include "utils.h"
 
+#include <string.h>
+
 void initRegistry(Registry *registry);
+
+char* allocString(char *message);
+
+Vaccine* fillVaccine(char *name, char *pharmaceutical, int inStock);
+
+void addVaccine(Registry *registry, char *name, char *pharmaceutical, int inStock);
+
+void listVaccines(Vaccine *vaccine);
+
+Vaccine* findVaccine(Vaccine *vaccine, char *name);
 
 void listByDose(List *people, int dose);
 
-void reportStock(VaccineStock *vaccineStock);
+void reportStock(Vaccine *vaccine);
 
 void reportFirstDose(List *people);
 

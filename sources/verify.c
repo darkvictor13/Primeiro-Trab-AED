@@ -44,3 +44,21 @@ int verifyPriority(int priority) {
 
     return 1;
 }
+
+int verifyPerson(Person data) {
+    if(
+        verifyName(data.name) &&
+        verifyAge(data.age) &&
+        verifyGenre(data.genre) &&
+        verifyRG(data.rg) &&
+        verifyCPF(data.cpf) &&
+        verifyPhone(data.phone) &&
+        verifyAddress(data.address) &&
+        verifyProfession(data.profession) &&
+        verifyPriority(data.priority)
+    ) {
+        return 1;
+    }
+
+    return 0;
+}

@@ -3,17 +3,22 @@
 
 #include "people_list_structure.h"
 
-typedef struct {
-	int coronavac;
-	int oxford;
-	int sputnik;
-	int pfizer;
-	int moderna;
-}VaccineStock;
+typedef struct vaccine {
+	char *name;
+	char *pharmaceutical;
+	int inStock;
+	struct vaccine *next;
+}Vaccine;
+
+// coronavac
+// oxford
+// sputnik
+// pfizer
+// moderna
 
 typedef struct {
 	List *people;
-	VaccineStock vaccineStock;
+	Vaccine *vaccine;
 	int validGroup;
 }Registry;
 

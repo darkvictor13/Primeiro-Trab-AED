@@ -2,10 +2,14 @@
 
 char* readDataString(FILE *file) {
     char* value = (char*)malloc(MAX_LEN * sizeof(char));
+    
     fscanf(file, "%[^;]%*c", value);
+    
     int len = strlen(value);
+    
     value = (char*)realloc(value, (len + 1) * sizeof(char));
     value[len] = '\0';
+    
     return value;
 }
 

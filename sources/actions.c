@@ -1,10 +1,17 @@
 #include "../headers/actions.h"
 
-void enterDataString(char *message, char *value) {
-    value = (char*)malloc(MAX_LEN * sizeof(char));
+char* enterDataString(char *message) {
+    char *value = (char*)malloc(MAX_LEN * sizeof(char));
+
     printf(message);
-    scanf("%s", value);
-    value = (char*)realloc(value, MAX_LEN * sizeof(char));
+    scanf("%[^\n]%*c", value);
+    
+    int len = strlen(value);
+    
+    value = (char*)realloc(value, (len + 1) * sizeof(char));
+    value[len] = '\0';
+
+    return value;
 }
 
 void registerHabitant(Registry *registry) {
@@ -15,38 +22,28 @@ void registerHabitant(Registry *registry) {
 
     Node *node = allocPerson();
 
-    enterDataString("Nome: ", node->data.name);
+    node->data.name = enterDataString("Nome: ");
 
     printf("Idade: ");
-    scanf("%d", &node->data.age);
+    scanf("%d%*c", &node->data.age);
     
     printf("Gênero: [M/F] ");
-    scanf("%c", &node->data.genre);
+    scanf("%c%*c", &node->data.genre);
     
-    enterDataString("RG: ", node->data.rg);
-    enterDataString("CPF: ", node->data.cpf);
-    enterDataString("Telefone: ", node->data.phone);
-    enterDataString("Endereço: ", node->data.address);
-    enterDataString("Profisão: ", node->data.profession);
+    node->data.rg = enterDataString("RG: ");
+    node->data.cpf = enterDataString("CPF: ");
+    node->data.phone = enterDataString("Telefone: ");
+    node->data.address = enterDataString("Endereço: ");
+    node->data.profession = enterDataString("Profisão: ");
 
     printf("Prioridade: [1-5] ");
-    scanf("%d", &node->data.priority);
+    scanf("%d%*c", &node->data.priority);
 
-    if(
-        verifyName(node->data.name) ||
-        verifyAge(node->data.age) ||
-        verifyGenre(node->data.genre) ||
-        verifyRG(node->data.rg) ||
-        verifyCPF(node->data.cpf) ||
-        verifyPhone(node->data.phone) ||
-        verifyAddress(node->data.address) ||
-        verifyProfession(node->data.profession) ||
-        verifyPriority(node->data.priority)
-    ) {
+    if( verifyPerson(node->data) ) {
         node->data.dose = 0;
         insertPerson(registry->people, node->data);
     }else{
-
+        printf("");
     }
 
     getChar();
@@ -65,8 +62,8 @@ void registerVaccination(Registry *registry) {
 
     Node *person = searchByCPF(registry->people , cpf);
 
-    if(person != NULL) {
-        printf("Name: %s\n", person->data.name);
+    if(person != NULL || registry->validGroup <= person->data.priority) {
+        
     }
         
     getChar();
@@ -124,6 +121,16 @@ void controlStock(Registry *registry) {
     printf(" -------------------------\n");
     printf("     Controlar estoque\n");
     printf(" -------------------------\n\n");
+
+    char name[MAX_LEN];
+
+    printf("Vacina: ");
+    scanf("%s", name);
+
+    Vaccine *vaccine = findVaccine(registry->vaccine, name);
+
+    printf("%d", vaccine->inStock);
+
     getChar();
 }
 
@@ -141,14 +148,14 @@ void reports(Registry *registry) {
     printf("    4 - Habitantes sem vacinar.\n");
     printf("    5 - Habitantes por grupo de risco.\n\n");
 
-    char answer;
+    char answer[2];
 
     printf(" Selecione um tipo de relatório: [1-5] ");
-    scanf("%c", &answer);
+    scanf("%s", &answer);
 
-    switch(answer) {
+    switch(answer[0]) {
         case '1':
-            reportStock(&registry->vaccineStock);
+            reportStock(registry->vaccine);
         break;
 
         case '2':

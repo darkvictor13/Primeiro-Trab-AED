@@ -3,14 +3,75 @@
 void initRegistry(Registry *registry) {
     
 	registry->people = NULL;
-
-    registry->vaccineStock.coronavac = 0;
-	registry->vaccineStock.oxford = 0;
-	registry->vaccineStock.sputnik = 0;
-	registry->vaccineStock.pfizer = 0;
-	registry->vaccineStock.moderna = 0;
-
+    registry->vaccine = NULL;
 	registry->validGroup = 1;
+
+    addVaccine(registry, "Coronavac", "", 0);
+    addVaccine(registry, "Oxford", "", 0);
+    addVaccine(registry, "Sputnik", "", 0);
+    addVaccine(registry, "Pfizer", "", 0);
+    addVaccine(registry, "Moderna", "", 0);
+}
+
+char* allocString(char *message) {
+    char *string;
+
+    int len = strlen(message);
+    string = (char*)malloc(len * sizeof(char));
+
+    strcpy(string, message);
+
+    return string;
+}
+
+Vaccine* fillVaccine(char *name, char *pharmaceutical, int inStock) {
+    Vaccine *vaccine = (Vaccine*)malloc(sizeof(Vaccine));
+
+    vaccine->name = allocString(name);
+    vaccine->pharmaceutical = allocString(pharmaceutical);
+    vaccine->inStock = inStock;
+
+    vaccine->next = NULL;
+
+    return vaccine;
+}
+
+void addVaccine(Registry *registry, char *name, char *pharmaceutical, int inStock) {
+    if(registry->vaccine == NULL) {
+        registry->vaccine = fillVaccine(name, pharmaceutical, inStock);
+    }else{
+        Vaccine *vaccine = registry->vaccine;
+
+        while(vaccine->next != NULL) {
+            vaccine = vaccine->next;
+        }
+
+        vaccine->next = fillVaccine(name, pharmaceutical, inStock);
+    }    
+
+    return;
+}
+
+void listVaccines(Vaccine *vaccine) {
+    if(vaccine != NULL) {
+        printf("    %s \t %s \t %d\n", vaccine->name, vaccine->pharmaceutical, vaccine->inStock);
+
+        if(vaccine->next != NULL) {
+            listVaccines(vaccine->next);
+        }
+    }
+}
+
+Vaccine* findVaccine(Vaccine *vaccine, char *name) {
+    if(vaccine == NULL) {
+        return NULL;
+    }
+
+    if(!strcmp(vaccine->name, name)) {
+        return vaccine;
+    }
+
+    findVaccine(vaccine->next, name);
 }
 
 void listByDose(List *people, int dose){
@@ -29,17 +90,13 @@ void listByDose(List *people, int dose){
     }
 }
 
-void reportStock(VaccineStock *vaccineStock) {
+void reportStock(Vaccine *vaccine) {
     system(clear);
     printf(" ------------------------------------------\n");
     printf("      Relatório de vacinas em estoque\n");
     printf(" ------------------------------------------\n\n");
 
-    printf("    Coronavac: \t %d\n", vaccineStock->coronavac);
-	printf("    Oxford: \t %d\n", vaccineStock->oxford);
-	printf("    Sputnik: \t %d\n", vaccineStock->sputnik);
-	printf("    Pfizer: \t %d\n", vaccineStock->pfizer);
-	printf("    Moderna: \t %d\n", vaccineStock->moderna);
+    listVaccines(vaccine);
 }
 
 void reportFirstDose(List *people) {
