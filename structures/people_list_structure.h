@@ -18,6 +18,7 @@ typedef struct {
     char *profession;
     short int priority; // required
     short int dose;
+    struct vaccine *vaccine;
 }Person;
 
 typedef struct node {

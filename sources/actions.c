@@ -41,6 +41,7 @@ void registerHabitant(Registry *registry) {
 
     if( verifyPerson(node->data) ) {
         node->data.dose = 0;
+        node->data.vaccine = NULL;
         insertPerson(registry->people, node->data);
     }else{
         printf("");
@@ -62,8 +63,32 @@ void registerVaccination(Registry *registry) {
 
     Node *person = searchByCPF(registry->people , cpf);
 
-    if(person != NULL || registry->validGroup <= person->data.priority) {
-        
+    if(person != NULL && registry->validGroup <= person->data.priority && person->data.dose < 2) {
+        if(person->data.vaccine == NULL) {
+            person->data.vaccine = findVaccineAvailable(registry->vaccine);
+            
+            if(person->data.vaccine == NULL) {
+                printf("Não há vacinas em estoque.\n");
+                getChar();
+                return;
+            }
+            
+            person->data.vaccine->inStock--;
+            person->data.dose++;
+            
+            printf("Vacinação realizada com sucesso.\n");            
+        }else{
+            if(person->data.vaccine->inStock > 0) {
+                person->data.vaccine->inStock--;
+                person->data.dose++;
+
+                printf("Vacinação realizada com sucesso.\n");
+            }else{
+                printf("Não tem %s em estoque.\n", person->data.vaccine->name);
+            }
+        }
+    }else{
+        printf("Pessoa não válida para vacinação.\n");
     }
         
     getChar();
@@ -105,12 +130,16 @@ void releaseGroup(Registry *registry) {
 
     char answer;
 
-    printf("Atualemente os grupos de prioridade até %d estão permitidos de se vacinarr.]n");
-    //printf("Deseja remover o registro de %s? [Y/N] \n", person->data.name);
+    printf("Atualemente os grupos de prioridade até %d estão permitidos de se vacinarr.\n");
+    
+    printf("Deseja liberar a vacinação de outro grupo? [Y/N] \n");
     scanf("%c", answer);
 
     if( answer == 'Y' || answer == 'y' ) {
-        //removePerson(person);
+        int group;
+        printf("Grupo: ");
+        scanf("%d", &group);
+        registry->validGroup = group;
     }
 
     getChar();
@@ -129,7 +158,14 @@ void controlStock(Registry *registry) {
 
     Vaccine *vaccine = findVaccine(registry->vaccine, name);
 
-    printf("%d", vaccine->inStock);
+    if(vaccine == NULL) {
+        printf("Vacina não encontrada.\n");
+    }else{
+        int amount;
+        printf("Quntidade: ");
+        scanf("%d", &amount);
+        vaccine->inStock += amount;
+    }
 
     getChar();
 }

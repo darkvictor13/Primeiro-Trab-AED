@@ -18,6 +18,8 @@ void listVaccines(Vaccine *vaccine);
 
 Vaccine* findVaccine(Vaccine *vaccine, char *name);
 
+Vaccine* findVaccineAvailable(Vaccine *vaccine);
+
 void listByDose(List *people, int dose);
 
 void reportStock(Vaccine *vaccine);

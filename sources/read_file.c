@@ -48,6 +48,7 @@ int readPerson(FILE *file, Person *data) {
     fscanf(file, "%hd%*r", &data->priority);
 
     data->dose = 0;
+    data->vaccine = NULL;
 
     return 1;
 }

@@ -48,8 +48,18 @@ void addVaccine(Registry *registry, char *name, char *pharmaceutical, int inStoc
 
         vaccine->next = fillVaccine(name, pharmaceutical, inStock);
     }    
-
     return;
+}
+
+Vaccine* findVaccineAvailable(Vaccine *vaccine) {
+    if(vaccine == NULL) {
+        return NULL;
+    }else{
+        if(vaccine->inStock > 0) {
+            return vaccine;
+        }
+        return findVaccineAvailable(vaccine->next);
+    }
 }
 
 void listVaccines(Vaccine *vaccine) {
