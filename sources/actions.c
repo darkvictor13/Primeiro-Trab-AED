@@ -128,14 +128,14 @@ void releaseGroup(Registry *registry) {
     printf("       Liberar grupo\n");
     printf(" -------------------------\n\n");
 
-    char answer;
+    char answer[2];
 
-    printf("Atualemente os grupos de prioridade até %d estão permitidos de se vacinarr.\n");
+    printf("Atualemente os grupos de prioridade até %hd estão permitidos de se vacinarr.\n", registry->validGroup);
     
-    printf("Deseja liberar a vacinação de outro grupo? [Y/N] \n");
-    scanf("%c", answer);
+    printf("Deseja liberar a vacinação de outro grupo? [Y/N] ");
+    scanf("%s", answer);
 
-    if( answer == 'Y' || answer == 'y' ) {
+    if( answer[0] == 'Y' || answer[0] == 'y' ) {
         int group;
         printf("Grupo: ");
         scanf("%d", &group);
