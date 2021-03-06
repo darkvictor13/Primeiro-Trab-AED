@@ -84,6 +84,16 @@ Vaccine* findVaccine(Vaccine *vaccine, char *name) {
     findVaccine(vaccine->next, name);
 }
 
+void printPersonData(char *name, char *cpf) {
+    int i;
+    int qnt_spaces =  LEN_NAME - strlen(name);
+    printf("    Nome: %s", name);
+    for(i = 0; i < qnt_spaces; i++) {
+        printf("%c", ' ');
+    }
+    printf("CPF: %s\n", cpf);
+}
+
 void listByDose(List *people, int dose){
     Node *this = people->head;
 
@@ -93,7 +103,7 @@ void listByDose(List *people, int dose){
         }
         
         if( this->data.dose == dose ) {
-            printf("    Nome: %s    CPF: %s\n", this->data.name, this->data.cpf);
+            printPersonData(this->data.name, this->data.cpf);
         }
         
         this = this->next;

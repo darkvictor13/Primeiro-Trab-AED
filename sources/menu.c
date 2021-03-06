@@ -13,6 +13,11 @@ void thisOption(char* string, int selected) {
     printf("] %s\n", string);
 }
 
+void continueMenu() {
+    printf("\n\nAperte [ENTER] para continuar ... \n\n\n");
+    getChar();
+}
+
 void initMessage() {
 
     system(clear);
@@ -22,10 +27,8 @@ void initMessage() {
     printf(" ----------------------------------------\n");
     printf(" -------- Vaccine Control System --------\n");
     printf(" ----------------------------------------\n");
-    printf(" ---------------------------- Since 2021.\n");
-    printf(" Press enter to continue ... \n\n\n");
-
-    getChar();
+    printf(" ---------------------------- Desde 2021.\n");
+    continueMenu();
 }
 
 void menuController(Registry *registry) {
@@ -112,7 +115,7 @@ void endMessage() {
     system(clear);
 
     printf("\n");
-    printf("-------------------------------------------\n");
-    printf("----- Program terminated successfully -----\n");
-    printf("-------------------------------------- End.\n\n");
+    printf("------------------------------------------\n");
+    printf("----- Programa encerrado com sucesso -----\n");
+    printf("------------------------------------------\n");
 }

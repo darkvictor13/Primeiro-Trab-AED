@@ -9,6 +9,8 @@
 
 void thisOption(char* string, int selected);
 
+void continueMenu();
+
 void initMessage();
 
 void menuController(Registry *registry);

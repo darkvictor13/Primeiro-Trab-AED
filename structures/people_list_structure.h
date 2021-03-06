@@ -6,6 +6,7 @@
 #define LEN_RG 20
 #define LEN_CPF 20
 #define LEN_PHONE 20
+#define LEN_NAME 30
 
 typedef struct {
     char *name;         // required

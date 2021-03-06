@@ -1,4 +1,5 @@
 #include "../headers/actions.h"
+#include "../headers/menu.h"
 
 char* enterDataString(char *message) {
     char *value = (char*)malloc(MAX_LEN * sizeof(char));
@@ -17,7 +18,7 @@ char* enterDataString(char *message) {
 void registerHabitant(Registry *registry) {
     system(clear);
     printf(" -------------------------\n");
-    printf("    Registrar habiatnte\n");
+    printf("    Registrar habitante\n");
     printf(" -------------------------\n\n");
 
     Node *node = allocPerson();
@@ -37,7 +38,7 @@ void registerHabitant(Registry *registry) {
     node->data.profession = enterDataString("Profissão: ");
 
     printf("Prioridade: [1-5] ");
-    scanf("%d%*c", &node->data.priority);
+    scanf("%hd%*c", &node->data.priority);
 
     if( verifyPerson(node->data) ) {
         node->data.dose = 0;
@@ -47,7 +48,7 @@ void registerHabitant(Registry *registry) {
         printf("");
     }
 
-    getChar();
+    continueMenu();
 }
 
 void registerVaccination(Registry *registry) {
@@ -59,7 +60,7 @@ void registerVaccination(Registry *registry) {
     char cpf[LEN_CPF];
 
     printf("CPF: ");
-    scanf("%s", cpf);
+    scanf("%s%*c", cpf);
 
     Node *person = searchByCPF(registry->people , cpf);
 
@@ -69,7 +70,7 @@ void registerVaccination(Registry *registry) {
             
             if(person->data.vaccine == NULL) {
                 printf("Não há vacinas em estoque.\n");
-                getChar();
+                continueMenu();
                 return;
             }
             
@@ -91,7 +92,7 @@ void registerVaccination(Registry *registry) {
         printf("Pessoa não válida para vacinação.\n");
     }
         
-    getChar();
+    continueMenu();
 }
 
 void removeHabitant(Registry *registry) {
@@ -103,22 +104,23 @@ void removeHabitant(Registry *registry) {
     char cpf[LEN_CPF];
 
     printf("CPF: ");
-    scanf("%s", cpf);
+    scanf("%s%*c", cpf);
 
     Node *person = searchByCPF(registry->people , cpf);
 
     if(person != NULL) {
 
-        char answer[2];
+        char answer;
         printf("Deseja remover o registro de %s? [Y/N] ", person->data.name);
-        scanf("%s", answer);
+        scanf("%c%*c", &answer);
 
-        if( answer[0] == 'Y' || answer[0] == 'y' ) {
+        if( answer == 'Y' || answer == 'y' ) {
             removeNode(registry->people, person);
         }
 
     }else{
         printf("Pessoa não encontrada.");
+        continueMenu();
     }
 }
 
@@ -128,21 +130,21 @@ void releaseGroup(Registry *registry) {
     printf("       Liberar grupo\n");
     printf(" -------------------------\n\n");
 
-    char answer[2];
+    char answer;
 
-    printf("Atualmente os grupos de prioridade até %hd estão permitidos de se vacinar.\n", registry->validGroup);
+    printf("Atualmente os grupos de prioridade até %d tem permissão de se vacinar.\n", registry->validGroup);
     
     printf("Deseja liberar a vacinação de outro grupo? [Y/N] ");
-    scanf("%s", answer);
+    scanf("%c%*c", &answer);
 
-    if( answer[0] == 'Y' || answer[0] == 'y' ) {
+    if( answer == 'Y' || answer == 'y' ) {
         int group;
         printf("Grupo: ");
-        scanf("%d", &group);
+        scanf("%d%*c", &group);
         registry->validGroup = group;
     }
 
-    getChar();
+    continueMenu();
 }
 
 void controlStock(Registry *registry) {
@@ -154,7 +156,7 @@ void controlStock(Registry *registry) {
     char name[MAX_LEN];
 
     printf("Vacina: ");
-    scanf("%s", name);
+    scanf("%[^\n]%*c", name);
 
     Vaccine *vaccine = findVaccine(registry->vaccine, name);
 
@@ -162,12 +164,12 @@ void controlStock(Registry *registry) {
         printf("Vacina não encontrada.\n");
     }else{
         int amount;
-        printf("Quntidade: ");
-        scanf("%d", &amount);
+        printf("Quantidade: ");
+        scanf("%d%*c", &amount);
         vaccine->inStock += amount;
     }
 
-    getChar();
+    continueMenu();
 }
 
 void reports(Registry *registry) {
@@ -184,12 +186,12 @@ void reports(Registry *registry) {
     printf("    4 - Habitantes sem vacinar.\n");
     printf("    5 - Habitantes por grupo de risco.\n\n");
 
-    char answer[2];
+    char answer;
 
     printf(" Selecione um tipo de relatório: [1-5] ");
-    scanf("%s", &answer);
+    scanf("%c%*c", &answer);
 
-    switch(answer[0]) {
+    switch(answer) {
         case '1':
             reportStock(registry->vaccine);
         break;
@@ -214,5 +216,5 @@ void reports(Registry *registry) {
             printf("Tipo de relatório não identificado.\n");
     }
 
-    getChar();
+    continueMenu();
 }
