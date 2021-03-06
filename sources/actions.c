@@ -34,7 +34,7 @@ void registerHabitant(Registry *registry) {
     node->data.cpf = enterDataString("CPF: ");
     node->data.phone = enterDataString("Telefone: ");
     node->data.address = enterDataString("Endereço: ");
-    node->data.profession = enterDataString("Profisão: ");
+    node->data.profession = enterDataString("Profissão: ");
 
     printf("Prioridade: [1-5] ");
     scanf("%d%*c", &node->data.priority);
@@ -130,7 +130,7 @@ void releaseGroup(Registry *registry) {
 
     char answer[2];
 
-    printf("Atualemente os grupos de prioridade até %hd estão permitidos de se vacinarr.\n", registry->validGroup);
+    printf("Atualmente os grupos de prioridade até %hd estão permitidos de se vacinar.\n", registry->validGroup);
     
     printf("Deseja liberar a vacinação de outro grupo? [Y/N] ");
     scanf("%s", answer);
@@ -179,7 +179,7 @@ void reports(Registry *registry) {
     printf(" Tipos de relatórios: \n");
     printf(" -------------------\n");
     printf("    1 - Relatório de estoque.\n");
-    printf("    2 - Habiatntes com a primeira dose.\n");
+    printf("    2 - Habitantes com a primeira dose.\n");
     printf("    3 - Habitantes com a segunda dose.\n");
     printf("    4 - Habitantes sem vacinar.\n");
     printf("    5 - Habitantes por grupo de risco.\n\n");
