@@ -1,48 +1,44 @@
 #include "../headers/verify.h"
+#include <string.h>
+#include <stdio.h>
 
 int verifyName(char* name) {
-
-    return 1;
+    return (name != NULL && strlen(name) <= LEN_NAME);
 }
 
 int verifyAge(int age) {
-
-    return 1;
+    return ((age > 0) && (age < 120));
 }
 
 int verifyGenre(char genre) {
-
-    return 1;
+    return (genre == 'F' || 
+            genre == 'M' ||
+            genre == 'f' ||
+            genre == 'm');
 }
 
 int verifyRG(char* rg) {
-
-    return 1;
+    return (rg != NULL && strlen(rg) <= LEN_RG);
 }
 
 int verifyCPF(char* cpf) {
-
-    return 1;
+    return (cpf != NULL && strlen(cpf) <= LEN_CPF);
 }
 
 int verifyPhone(char* phone) {
-
     return 1;
 }
 
 int verifyAddress(char* address) {
-
     return 1;
 }
 
 int verifyProfession(char* profession) {
-
     return 1;
 }
 
 int verifyPriority(int priority) {
-
-    return 1;
+    return (priority >= 1 && priority <= 5);
 }
 
 int verifyPerson(Person data) {

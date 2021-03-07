@@ -2,16 +2,23 @@
 #include "../headers/menu.h"
 
 char* enterDataString(char *message) {
-    char *value = (char*)malloc(MAX_LEN * sizeof(char));
-
+    char is_eol;
     printf(message);
-    scanf("%[^\n]%*c", value);
+    scanf("%c", &is_eol);
+    if (is_eol == '\n') {
+        return NULL;
+    }
+    char *value = (char*)malloc(MAX_LEN * sizeof(char));
+    value[0] = is_eol;
+
+    scanf("%[^\n]%*c", value + 1);
     
     int len = strlen(value);
     
     value = (char*)realloc(value, (len + 1) * sizeof(char));
     value[len] = '\0';
 
+    printf("Li = %s\n", value);
     return value;
 }
 
@@ -45,7 +52,7 @@ void registerHabitant(Registry *registry) {
         node->data.vaccine = NULL;
         insertPerson(registry->people, node->data);
     }else{
-        printf("");
+        printf("Cadastro inválido\n");
     }
 
     continueMenu();
@@ -120,8 +127,9 @@ void removeHabitant(Registry *registry) {
 
     }else{
         printf("Pessoa não encontrada.");
-        continueMenu();
     }
+
+    continueMenu();
 }
 
 void releaseGroup(Registry *registry) {
@@ -141,6 +149,11 @@ void releaseGroup(Registry *registry) {
         int group;
         printf("Grupo: ");
         scanf("%d%*c", &group);
+        while ((group > 5) || (group < 1)) {
+            printf("grupo inválido\n");
+            printf("Grupo: ");
+            scanf("%d%*c", &group);
+        }
         registry->validGroup = group;
     }
 
