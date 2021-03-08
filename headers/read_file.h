@@ -7,40 +7,26 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-char* readDataString( FILE *file);
-
-/**
-* Function - realiza a leitura de uma pessoa
-*
-* @authors - mGuerra, mLucas, vAlmeida
-* @version - 1.0
-* @since - 1.0
-*
-* @pre-conditions - nenhuma
-* @pos-conditions - nenhuma
-*
-* @param -
-* @param -
-*
-* @return bool - leitura realizada com sucesso
-*/
+/*************************************************
+ * Lê os dados uma string de um arquivo
+ * Retorno: String alocado
+ * Pré-condição: Nenhum
+ * Pós-condição: String alocado
+**************************************************/
+char* readDataString(FILE *file);
+/*************************************************
+ * Lê os dados da estrutura Person de um arquivo
+ * Retorno: 1
+ * Pré-condição: Nenhum
+ * Pós-condição: Nenhum
+**************************************************/
 int readPerson(FILE *file, Person *data);
-
-/**
-* Function - carrega os dados de um arquivo de texto para a lista indicada
-*
-* @authors - mGuerra, mLucas, vAlmeida
-* @version - 1.0
-* @since - 1.0
-*
-* @pre-conditions - nenhuma
-* @pos-conditions - lista com as informações carregadas a partir do arquivo
-*
-* @param -
-* @param -
-*
-* @return - o local de memória da cabeça da lista
-*/
+/*************************************************
+ * Lê um arquivo e insere os dados na lista
+ * Retorno: Lista com os dados do arquivo inserido
+ * Pré-condição: Arquivo deve existir
+ * Pós-condição: Arquivo lido e inserido na lista
+**************************************************/
 List *readFile(char *fn, List *list);
 
 #endif

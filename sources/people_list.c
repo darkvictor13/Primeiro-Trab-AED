@@ -141,14 +141,45 @@ int isEmptyString(char s[]) {
 int isNull(void * data) {
     return data == NULL;
 }
+
+/*************************************************
+ * Libera um nó da lista de vacinas
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Nó vazio
+**************************************************/
+void freeVaccine(Vaccine *vaccine) {
+    free(vaccine->name);
+    free(vaccine->pharmaceutical);
+    free(vaccine);
+}
+
+/*************************************************
+ * Libera a lista de vacinas
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Lista vazia
+**************************************************/
+void freeVaccineList(Vaccine *vaccine) {
+    if (vaccine != NULL) {
+        freeVaccineList(vaccine->next);
+        freeVaccine(vaccine);
+    }
+}
+
 /*************************************************
  * Libera a lista Person
  * Retorno: Nenhum
  * Pré-condição: Nenhum
  * Pós-condição: Lista vazia
 **************************************************/
-void freePerson(Person *person) {
-
+void freePerson(Person person) {
+    free(person.name);
+    free(person.rg);
+    free(person.cpf);
+    if (person.phone) free(person.phone);
+    if (person.address) free(person.address);
+    if (person.profession) free(person.profession);
 }
 /*************************************************
  * Libera o Nó da lista
@@ -156,8 +187,12 @@ void freePerson(Person *person) {
  * Pré-condição: Nenhum
  * Pós-condição: Nó vazia
 **************************************************/
-void freeNode(Node *node) {
-
+void freeNodes(Node *node) {
+    if (node != NULL) {
+        freePerson(node->data);
+        freeNodes(node->next);
+        free(node);
+    }
 }
 /*************************************************
  * Libera a estrutura Lista
@@ -166,5 +201,6 @@ void freeNode(Node *node) {
  * Pós-condição: Lista vazia
 **************************************************/
 void freeList(List *list) {
-
+    freeNodes(list->head);
+    free(list);
 }

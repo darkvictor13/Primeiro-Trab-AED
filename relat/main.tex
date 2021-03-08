@@ -13,6 +13,7 @@
 \usepackage{framed}
 \usepackage{enumitem}
 \usepackage{amsmath}
+\usepackage{listings}
 \usepackage{lastpage}
 \usepackage[hyphens]{url}
 \usepackage{hyperref}
@@ -22,12 +23,33 @@
 %%\citebrackets()
 \citebrackets[]
 
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+    language=C,
+    aboveskip=3mm,
+    belowskip=3mm,
+    showstringspaces=false,
+    columns=flexible,
+    basicstyle={\small\ttfamily},
+    numbers=none,
+    numberstyle=\tiny\color{gray},
+    keywordstyle=\color{blue},
+    commentstyle=\color{dkgreen},
+    stringstyle=\color{mauve},
+    breaklines=true,
+    breakatwhitespace=true,
+    tabsize=4
+}
+
 \hypersetup{
-	colorlinks=true,
-	linkcolor=black,
-	filecolor=magenta,      
-	urlcolor=blue,
-	citecolor=black,
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=blue,
+    citecolor=black,
 }
 
 %% Definindo o Autor e o título
@@ -46,58 +68,125 @@
 
 \begin{document}
 \begin{titlepage}
-	\centering
-	\thispagestyle{fancy}
+    \centering
+    \thispagestyle{fancy}
 
-	\begin{minipage}{0.4\textwidth}
-		\begin{flushleft}
-			\includegraphics[scale=0.6]{logo_unioeste.jpg}\\[1.0 cm]
-		\end{flushleft}
-	\end{minipage}
-	\begin{minipage}{0.5\textwidth}
-		\begin{flushright}\large
-			\textsc{\LARGE\textbf{UNIOESTE}}\\
-			\vspace{1cm}
-			Universidade Estadual\\do Oeste do Paraná
-		\end{flushright}
-	\end{minipage}
-	%\rule{\textwidth}{.5pt}\\[2.0 cm]
-	\vspace*{4.5 cm}
+    \begin{minipage}{0.4\textwidth}
+        \begin{flushleft}
+            \includegraphics[scale=0.6]{logo_unioeste.jpg}\\[1.0 cm]
+        \end{flushleft}
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+        \begin{flushright}\large
+            \textsc{\LARGE\textbf{UNIOESTE}}\\
+            \vspace{1cm}
+            Universidade Estadual\\do Oeste do Paraná
+        \end{flushright}
+    \end{minipage}
+    %\rule{\textwidth}{.5pt}\\[2.0 cm]
+    \vspace*{4.5 cm}
 
-	{\huge\bfseries\thetitle}\\
-	\rule{\linewidth}{0.2 mm}\\[1.5 cm]
-	
-	\vspace{2cm}
-	\begin{minipage}[t]{0.4\textwidth}
-		\begin{flushleft}\large
-			\emph{Professor:}\\
-			\prof\\
-		\end{flushleft}
-	\end{minipage}
-	\begin{minipage}[t]{0.5\textwidth}
+    {\huge\bfseries\thetitle}\\
+    \rule{\linewidth}{0.2 mm}\\[1.5 cm]
 
-		\begin{flushright}\large
-			\emph{Grupo:}\\
-			\theauthor
-		\end{flushright}
+    \vspace{2cm}
+    \begin{minipage}[t]{0.4\textwidth}
+        \begin{flushleft}\large
+            \emph{Professor:}\\
+            \prof\\
+        \end{flushleft}
+    \end{minipage}
+    \begin{minipage}[t]{0.5\textwidth}
 
-	\end{minipage}\\[2 cm]
-	
-	\vfill\thedate
-	\end{titlepage}
+        \begin{flushright}\large
+            \emph{Grupo:}\\
+            \theauthor
+        \end{flushright}
 
-	\pagestyle{fancy}
-	%\fancyfoot[L]{Aluno(s):~\theauthor}
-	%\fancyfoot[R]{Prof:~\prof}
-	\fancyfoot[L]{}
-	\fancyfoot[R]{página~\thepage~de~\pageref{LastPage}}
-	\fancyhead[L]{}
-	\fancyhead[R]{}
+    \end{minipage}\\[2 cm]
 
-	\tableofcontents
-	\newpage
+    \vfill\thedate
+\end{titlepage}
 
-	\section{Estruturas de Dados}\label{Estruturas de Dados}
+\pagestyle{fancy}
+%\fancyfoot[L]{Aluno(s):~\theauthor}
+%\fancyfoot[R]{Prof:~\prof}
+\fancyfoot[L]{}
+\fancyfoot[R]{página~\thepage~de~\pageref{LastPage}}
+\fancyhead[L]{}
+\fancyhead[R]{}
 
-	\section{Uso do software}\label{Uso do software}
+\tableofcontents
+\newpage
+
+\section{Estruturas de Dados}\label{Estruturas de Dados}
+Todas as estruturas de dados estão definidas dentro da pasta ``./structures'', tendo como referência a raiz do projeto.
+\subsection{Arquivo ``people\_list\_structure.h''}\label{Arquivo``peoplelist.h''}
+\subsubsection{Estrutura ``Person''}\label{Estrutura ``Person''}
+
+\begin{lstlisting}
+typedef struct {
+    char *name;         // required
+    int age;            // required
+    char genre;         // required
+    char *rg;           // required
+    char *cpf;          // required
+    char *phone;
+    char *address;
+    char *profession;
+    short int priority; // required
+    short int dose;
+    struct vaccine *vaccine;
+}Person;
+\end{lstlisting}
+\subsubsection{Estrutura ``Node''}\label{Estrutura ``Node''}
+\begin{lstlisting}
+typedef struct node {
+    Person data;
+    struct node *next;
+}Node;
+\end{lstlisting}
+\subsubsection{Estrutura ``List''}\label{Estrutura ``List''}
+\begin{lstlisting}
+typedef struct {
+    struct node *head;
+    struct node *tail;
+}List;
+\end{lstlisting}
+\subsection{Arquivo ``registry\_structure.h''}\label{Arquivo ``registry''}
+\subsubsection{Estrutura ``Vaccine''}\label{Estrutura ``Vaccine''}
+\begin{lstlisting}
+typedef struct vaccine {
+    char *name;
+    char *pharmaceutical;
+    int inStock;
+    struct vaccine *next;
+}Vaccine;
+\end{lstlisting}
+\subsubsection{Estrutura ``Registry''}\label{Estrutura ``Registry''}
+\begin{lstlisting}
+typedef struct {
+    List *people;
+    Vaccine *vaccine;
+    int validGroup;
+}Registry;
+\end{lstlisting}
+\cleardoublepage
+\section{Uso do software}\label{Uso do software}
+\subsection{Compilando o proograma}\label{Compilando o proograma}
+Todos os arquivos de implementação estão na pasta ``./sources'', sendo assim para realizar o processo de compilação em um sistema operacional Linux que possui o compilador \textbf{GCC}, basta utilizar o comando ``\textbf{gcc main.c sources/*.c}''
+
+Caso o sistema operacional não suporte a abreviação ``*.c'', segue abaixo a lista de todos os arquivos fontes contidos na pasta \textbf{sources}:
+\begin{itemize}
+    \item actions.c
+    \item menu.c
+    \item people\_list.c
+    \item print\_stdio.c
+    \item read\_file.c
+    \item registry.c
+    \item utils.c
+    \item verify.c
+\end{itemize}
+
+Desta forma para compilar o programa sem o uso de expressões regulares, usa-se ``\textbf{gcc main.c sources/actions.c sources/menu.c sources/people\_list.c sources/print\_stdio.c sources/read\_file.c sources/registry.c sources/utils.c sources/verify.c}''.
 \end{document}

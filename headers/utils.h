@@ -17,10 +17,26 @@
 #include <unistd.h>
 #include <termios.h>
 
+/*************************************************
+ * Lê um caractere
+ * Retorno: caractere lido
+ * Pré-condição: Nenhum
+ * Pós-condição: Nenhum
+**************************************************/
 char getChar();
-
-void line(int lineLength);
-
-void fillSpaces(int numberOfSpaces);
+/*************************************************
+ * Imprime uma linha para os menus
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Nenhum
+**************************************************/
+void line (int lineLength);
+/*************************************************
+ * Imprime uma quantidade de espaços em branco
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Nenhum
+**************************************************/
+void fillSpaces (int numberOfSpaces);
 
 #endif

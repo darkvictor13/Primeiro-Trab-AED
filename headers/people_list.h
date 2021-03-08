@@ -2,113 +2,121 @@
 #define PEOPLE_LIST
 
 #include "../structures/people_list_structure.h"
+#include "../structures/registry_structure.h"
+
 
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
 
-/**
-* Function - aloca o espaço de memória necessário para armazenar uma pessoa
-*
-* @authors - mGuerra, mLucas, vAlmeida
-* @version - 1.0
-* @since - 1.0
-*
-* @pre-conditions - nenhuma
-* @pos-conditions - nenhuma
-*
-* @return - o local de memória alocado para uma pessoa
-*/
+/*************************************************
+ * Aloca a estrutura Person
+ * Retorno: Estrutura alocada
+ * Pré-condição: Nenhum
+ * Pós-condição: Estrutura Person alocada
+**************************************************/
 Node* allocPerson();
 
+/*************************************************
+ * Cria a lista
+ * Retorno: Retorna a lista alocada
+ * Pré-condição: Nenhum
+ * Pós-condição: Lista alocada
+**************************************************/
 List* createList();
-
-/**
-* Function - insere um elemento no final da lista
-*
-* @authors - mGuerra, mLucas, vAlmeida
-* @version - 1.0
-* @since - 1.0
-*
-* @pre-conditions - a lista não deve estar vazia
-* @pos-conditions - a lista possui um elemento a mais no seu final
-*
-* @return - void
-*/
+/*************************************************
+ * Insere dados na lista
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Insere habitante na lista
+**************************************************/
 void insertPerson(List *list, Person data);
-
+/*************************************************
+ * Remove um habitante na cabeça
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Remover o primeiro habitante
+**************************************************/
 void removeNodeInHead(List *list);
-
+/*************************************************
+ * Remove um habitante na cauda
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Remover o ultimo habitante
+**************************************************/
 void removeNodeInTail(List *l);
-
+/*************************************************
+ * Remove um habitante no meio da lista
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Remover habitante no meio da lista
+**************************************************/
 void removeNodeInMiddle(List *l, Node *data);
-
+/*************************************************
+ * Remove um habitante independente de sua posição
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Remove um habitante
+**************************************************/
 void removeNode(List *list, Node *node);
-
-/**
-* Function - busca uma pessoa dentro da lista pelo seu cpf
-*
-* @authors - mGuerra, mLucas, vAlmeida
-* @version - 1.0
-* @since - 1.0
-*
-* @pre-conditions - a lista não deve estar vazia
-* @pos-conditions - nenhuma
-*
-* @return - void
-*/
+/*************************************************
+ * Busca pelo CPF
+ * Retorno: Retorna nó do CPF
+ * Pré-condição: CPF deve estar cadastrado
+ * Pós-condição: CPF encontrado
+**************************************************/
 Node* searchByCPF(List *list, char *cpf);
+/*************************************************
+ * Verifica se a string esta vazia
+ * Retorno: booleano, string vazia
+ * Pré-condição: Nenhum
+ * Pós-condição: Verdadeiro ou falso
+**************************************************/
+int isEmptyString(char s[]);
+/*************************************************
+ * Verifica se data é vazia
+ * Retorno: Booleano, data é NULL
+ * Pré-condição: Nenhum
+ * Pós-condição: Verdadeiro ou falso
+**************************************************/
+int isNull(void * data);
 
-/**
-* Function - informa se uma string se encontra vazia
-*
-* @authors - mGuerra, mLucas, vAlmeida
-* @version - 1.0
-* @since - 1.0
-*
-* @pre-conditions - nenhuma
-* @pos-conditions - nenhuma
-*
-* @param -
-* @param -
-*
-* @return bool - informa se uma string se encontra vazia
-*/
-int isEmptyString(char string[]);
+/*************************************************
+ * Libera um nó da lista de vacinas
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Nó vazio
+**************************************************/
+void freeVaccine(Vaccine *vaccine);
 
-/**
-* Function - informa se um ponteiro é nulo
-*
-* @authors - mGuerra, mLucas, vAlmeida
-* @version - 1.0
-* @since - 1.0
-*
-* @pre-conditions - nenhuma
-* @pos-conditions - nenhuma
-*
-* @param -
-* @param -
-*
-* @return bool - informa se um ponteiro é nulo
-*/
-int isNull (void * data);
+/*************************************************
+ * Libera a lista de vacinas
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Lista vazia
+**************************************************/
+void freeVaccineList(Vaccine *vaccine);
 
-void freePerson(Person *person);
-
-void freeNode(Node *node);
-
-/**
-* Function - remove o último elemento da lista
-*
-* @authors - mGuerra, mLucas, vAlmeida
-* @version - 1.0
-* @since - 1.0
-*
-* @pre-conditions - a lista deve ser uma lista válida
-* @pos-conditions - o último elemento é removido da lista
-*
-* @return - nenhum
-*/
+/*************************************************
+ * Libera a lista Person
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Lista vazia
+**************************************************/
+void freePerson(Person person);
+/*************************************************
+ * Libera o Nó da lista
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Nó vazia
+**************************************************/
+void freeNodes(Node *node);
+/*************************************************
+ * Libera a estrutura Lista
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Lista vazia
+**************************************************/
 void freeList(List *list);
 
 #endif

@@ -7,52 +7,26 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-/**
-* Function - imprime um dado do tipo string
-*
-* @authors - mGuerra, mLucas, vAlmeida
-* @version - 1.0
-* @since - 1.0
-* 
-* @pre-conditions - uma string
-* @pos-conditions - nenhuma
-*
-* @param -
-*
-* @return -
-*/
-void printIfExist(char* string, char* content, char* identation);
-
-/**
-* Function - imprime os dados de um habitante
-*
-* @authors - mGuerra, mLucas, vAlmeida
-* @version - 1.0
-* @since - 1.0
-* 
-* @pre-conditions - os dados de uma pessoa válida
-* @pos-conditions - nenhuma
-*
-* @param -
-*
-* @return -
-*/
+/*************************************************
+ * Imprime se existe uma string
+ * Retorno: Nenhum
+ * Pré-condição: Se a string é valida
+ * Pós-condição: Nenhum
+**************************************************/
+void printIfExist(char* string, char* identation, char* content);
+/*************************************************
+ * Imprime os dados de um habitante
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Nenhum
+**************************************************/
 void printPerson(Person data, char* identation);
-
-/**
-* Function - imprime a lista de pessoas
-*
-* @authors - mGuerra, mLucas, vAlmeida
-* @version - 1.0
-* @since - 1.0
-*
-* @pre-conditions - a lista deve possuir pelomenos um elemento
-* @pos-conditions - nenhuma
-*
-* @param -
-*
-* @return - nenhum
-*/
+/*************************************************
+ * Imprime toda a lista de habitantes
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Nenhum
+**************************************************/
 void printList(List* list);
 
 #endif

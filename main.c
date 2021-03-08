@@ -23,6 +23,9 @@ int main (int argc, char *argv[]) {
     }
 
     menuController(&registry);
+
+    freeList(registry.people);
+    freeVaccineList(registry.vaccine);
    
     return 0;
 }
