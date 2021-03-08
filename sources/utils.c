@@ -6,6 +6,7 @@
  * Pré-condição: Nenhum
  * Pós-condição: Nenhum
 **************************************************/
+#ifdef linux
 char getChar() {
 
 	char character = 0;
@@ -39,6 +40,11 @@ char getChar() {
 
 	return character;
 }
+#else
+char getChar() {
+    return getch();
+}
+#endif
 /*************************************************
  * Imprime uma linha para os menus
  * Retorno: Nenhum

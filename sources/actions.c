@@ -34,7 +34,7 @@ char* enterDataString(char *message) {
  * Pós-condição: Novo cadastro inserido
 **************************************************/
 void registerHabitant(Registry *registry) {
-    system(clear);
+    system(CLEAR);
     printf(" -------------------------\n");
     printf("    Registrar habitante\n");
     printf(" -------------------------\n\n");
@@ -75,7 +75,7 @@ void registerHabitant(Registry *registry) {
  * Pós-condição: Menos uma vacina no estoque de vacinas
 **************************************************/
 void registerVaccination(Registry *registry) {
-    system(clear);
+    system(CLEAR);
     printf(" -------------------------\n");
     printf("    Registrar vacinação\n");
     printf(" -------------------------\n\n");
@@ -124,7 +124,7 @@ void registerVaccination(Registry *registry) {
  * Pós-condição: Habitante removido
 **************************************************/
 void removeHabitant(Registry *registry) {
-    system(clear);
+    system(CLEAR);
     printf(" -------------------------\n");
     printf("     Remover habiatnte\n");
     printf(" -------------------------\n\n");
@@ -159,7 +159,7 @@ void removeHabitant(Registry *registry) {
  * Pós-condição: Pode liberar ou não o(s) grupo(s) de prioridade
 **************************************************/
 void releaseGroup(Registry *registry) {
-    system(clear);
+    system(CLEAR);
     printf(" -------------------------\n");
     printf("       Liberar grupo\n");
     printf(" -------------------------\n\n");
@@ -192,7 +192,7 @@ void releaseGroup(Registry *registry) {
  * Pós-condição: Vacinas adicionadas no estoque
 **************************************************/
 void controlStock(Registry *registry) {
-    system(clear);
+    system(CLEAR);
     printf(" -------------------------\n");
     printf("     Controlar estoque\n");
     printf(" -------------------------\n\n");
@@ -222,7 +222,7 @@ void controlStock(Registry *registry) {
  * Pós-condição: Os relatorios sao impressos no console
 **************************************************/
 void reports(Registry *registry) {
-    system(clear);
+    system(CLEAR);
     printf(" -------------------------\n");
     printf("    Imprimir relatório\n");
     printf(" -------------------------\n\n");

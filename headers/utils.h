@@ -1,7 +1,11 @@
 #ifndef UTILS
 #define UTILS
 
-#define clear "clear"
+#ifdef linux
+#define CLEAR "clear"
+#else
+#define CLEAR "cls"
+#endif
 
 #define UP_DEFAULT 'w'
 #define DOWN_DEFAULT 's'
@@ -15,7 +19,13 @@
 #include <stdlib.h>
 #include <limits.h>
 #include <unistd.h>
+
+#ifdef linux
 #include <termios.h>
+#else
+#include <conio.h>
+#endif
+
 
 /*************************************************
  * Lê um caractere

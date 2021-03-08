@@ -161,7 +161,7 @@ void listByDose(List *people, int dose){
  * Pós-condição: Imprime as vacinas e o seu estoque
 **************************************************/
 void reportStock(Vaccine *vaccine) {
-    system(clear);
+    system(CLEAR);
     printf(" ------------------------------------------\n");
     printf("      Relatório de vacinas em estoque\n");
     printf(" ------------------------------------------\n\n");
@@ -175,7 +175,7 @@ void reportStock(Vaccine *vaccine) {
  * Pós-condição: Imprime no console as pessoas vacinadas com a primeira dose
 **************************************************/
 void reportFirstDose(List *people) {
-    system(clear);
+    system(CLEAR);
     printf(" ------------------------------------------------------------\n");
     printf("      Relatório de pessoas vacinadas com a primeira dose\n");
     printf(" ------------------------------------------------------------\n\n");
@@ -189,7 +189,7 @@ void reportFirstDose(List *people) {
  * Pós-condição: Imprime no console as pessoas vacinadas com a segunda dose
 **************************************************/
 void reportSecondDose(List *people) {
-    system(clear);
+    system(CLEAR);
     printf(" -----------------------------------------------------------\n");
     printf("      Relatório de pessoas vacinadas com a segunda dose\n");
     printf(" -----------------------------------------------------------\n\n");
@@ -203,7 +203,7 @@ void reportSecondDose(List *people) {
  * Pós-condição: Imprime no console as pessoas não vacinadas
 **************************************************/
 void reportWithoutVaccine(List *people) {
-    system(clear);
+    system(CLEAR);
     printf(" ------------------------------------------\n");
     printf("      Relatório de pessoas sem vacinar\n");
     printf(" ------------------------------------------\n\n");
@@ -240,7 +240,7 @@ int countGroup(List *people, int group) {
  * Pós-condição: Imprime no console as pessoas por grupo prioritario
 **************************************************/
 void reportGroups(List *people) {
-    system(clear);
+    system(CLEAR);
     printf(" ----------------------------------------\n");
     printf("      Relatório de pessoas por grupo\n");
     printf(" ----------------------------------------\n\n");

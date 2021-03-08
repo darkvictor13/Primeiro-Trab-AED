@@ -36,7 +36,7 @@ void continueMenu() {
 **************************************************/
 void initMessage() {
 
-    system(clear);
+    system(CLEAR);
 
     printf("\n");
     printf(" ----------------------------------------\n");
@@ -59,7 +59,7 @@ void menuController(Registry *registry) {
     
     initMessage();
 
-    system(clear);
+    system(CLEAR);
     menuMessage(option);
 
     selected = getChar();
@@ -105,7 +105,7 @@ void menuController(Registry *registry) {
             }
         }
 
-        system(clear);
+        system(CLEAR);
         menuMessage(option);
 
         selected = getChar();
@@ -144,7 +144,7 @@ void menuMessage(int option) {
 **************************************************/
 void endMessage() {
 
-    system(clear);
+    system(CLEAR);
 
     printf("\n");
     printf("------------------------------------------\n");
