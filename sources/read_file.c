@@ -1,5 +1,11 @@
 #include "../headers/read_file.h"
 
+/*************************************************
+ * Lê os dados uma string de um arquivo
+ * Retorno: String alocado
+ * Pré-condição: Nenhum
+ * Pós-condição: String alocado
+**************************************************/
 char* readDataString(FILE *file) {
     char* value = (char*)malloc(MAX_LEN * sizeof(char));
     
@@ -12,7 +18,12 @@ char* readDataString(FILE *file) {
     
     return value;
 }
-
+/*************************************************
+ * Lê os dados da estrutura Person de um arquivo
+ * Retorno: 1
+ * Pré-condição: Nenhum
+ * Pós-condição: Nenhum
+**************************************************/
 int readPerson(FILE *file, Person *data) {
     char c;
 
@@ -52,7 +63,12 @@ int readPerson(FILE *file, Person *data) {
 
     return 1;
 }
-
+/*************************************************
+ * Lê um arquivo e insere os dados na lista
+ * Retorno: Lista com os dados do arquivo inserido
+ * Pré-condição: Arquivo deve existir
+ * Pós-condição: Arquivo lido e inserido na lista
+**************************************************/
 List *readFile(char *fn, List *list) {
     FILE *file = fopen(fn, "r");
 

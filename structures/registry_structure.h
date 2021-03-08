@@ -3,6 +3,7 @@
 
 #include "people_list_structure.h"
 
+// Estrutura Vacina para o controle das vacinas 
 typedef struct vaccine {
 	char *name;
 	char *pharmaceutical;
@@ -15,7 +16,7 @@ typedef struct vaccine {
 // sputnik
 // pfizer
 // moderna
-
+// Estrutura para lista encadeada para o registro
 typedef struct {
 	List *people;
 	Vaccine *vaccine;

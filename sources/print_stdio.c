@@ -1,5 +1,11 @@
 #include "../headers/print_stdio.h"
 
+/*************************************************
+ * Imprime se existe uma string
+ * Retorno: Nenhum
+ * Pré-condição: Se a string é valida
+ * Pós-condição: Nenhum
+**************************************************/
 void printIfExist(char* string, char* identation, char* content) {
 
     printf("%s%s", identation, string);
@@ -10,7 +16,12 @@ void printIfExist(char* string, char* identation, char* content) {
         printf("%s.\n", content);
     }
 }
-
+/*************************************************
+ * Imprime os dados de um habitante
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Nenhum
+**************************************************/
 void printPerson(Person data, char* identation) {
 
     printIfExist("Nome: ", identation, data.name);
@@ -27,7 +38,12 @@ void printPerson(Person data, char* identation) {
     
     printf("%sPrioridade: %hd.\n", identation, data.priority);
 }
-
+/*************************************************
+ * Imprime toda a lista de habitantes
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Nenhum
+**************************************************/
 void printList(List* list) {
     char indentation[5] = "    \0";
 

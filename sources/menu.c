@@ -1,5 +1,11 @@
 #include "../headers/menu.h"
 
+/*************************************************
+ * Selecionar a opçao desejada
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Nenhum
+**************************************************/
 void thisOption(char* string, int selected) {
 
     printf(" [");
@@ -12,12 +18,22 @@ void thisOption(char* string, int selected) {
 
     printf("] %s\n", string);
 }
-
+/*************************************************
+ * Muda para o menu principal ao teclar Enter
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Muda para o menu principal
+**************************************************/
 void continueMenu() {
     printf("\n\nAperte [ENTER] para continuar ... \n\n\n");
     getChar();
 }
-
+/*************************************************
+ * Interface do programa
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: 
+**************************************************/
 void initMessage() {
 
     system(clear);
@@ -30,7 +46,12 @@ void initMessage() {
     printf(" ---------------------------- Desde 2021.\n");
     continueMenu();
 }
-
+/*************************************************
+ * Controla o menu principal
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Navega para a opção selecionada
+**************************************************/
 void menuController(Registry *registry) {
 
     int option = 0;
@@ -93,6 +114,12 @@ void menuController(Registry *registry) {
     }
 }
 
+/*************************************************
+ * Menu principal
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Imprime no console o menu principal
+**************************************************/
 void menuMessage(int option) {
 
     printf(" -------------------------\n");
@@ -109,7 +136,12 @@ void menuMessage(int option) {
     
     printf(" -------------------------\n");
 }
-
+/*************************************************
+ * Interface de encerramento do programa
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Imprime no console que o programa foi encerrado
+**************************************************/
 void endMessage() {
 
     system(clear);

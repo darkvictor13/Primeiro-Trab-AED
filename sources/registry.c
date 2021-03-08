@@ -1,5 +1,10 @@
 #include "../headers/registry.h"
-
+/*************************************************
+ * Inicia o registro de vacinação
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Nenhum
+**************************************************/
 void initRegistry(Registry *registry) {
     
 	registry->people = NULL;
@@ -12,7 +17,12 @@ void initRegistry(Registry *registry) {
     addVaccine(registry, "Pfizer", "", 0);
     addVaccine(registry, "Moderna", "", 0);
 }
-
+/*************************************************
+ * Aloca a string
+ * Retorno: String alocada
+ * Pré-condição: Nenhum
+ * Pós-condição: String alocada
+**************************************************/
 char* allocString(char *message) {
     char *string;
 
@@ -23,7 +33,12 @@ char* allocString(char *message) {
 
     return string;
 }
-
+/*************************************************
+ * Inicia o registro de vacinação
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Nenhum
+**************************************************/
 Vaccine* fillVaccine(char *name, char *pharmaceutical, int inStock) {
     Vaccine *vaccine = (Vaccine*)malloc(sizeof(Vaccine));
 
@@ -35,7 +50,12 @@ Vaccine* fillVaccine(char *name, char *pharmaceutical, int inStock) {
 
     return vaccine;
 }
-
+/*************************************************
+ * Adiciona vacina
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Vacina adicionada no registro
+**************************************************/
 void addVaccine(Registry *registry, char *name, char *pharmaceutical, int inStock) {
     if(registry->vaccine == NULL) {
         registry->vaccine = fillVaccine(name, pharmaceutical, inStock);
@@ -50,7 +70,12 @@ void addVaccine(Registry *registry, char *name, char *pharmaceutical, int inStoc
     }    
     return;
 }
-
+/*************************************************
+ * Procura vacina disponivel
+ * Retorno: Vacina com estoque maior que zero
+ * Pré-condição: Ter vacinas no estoque
+ * Pós-condição: Vacina encontrada
+**************************************************/
 Vaccine* findVaccineAvailable(Vaccine *vaccine) {
     if(vaccine == NULL) {
         return NULL;
@@ -61,7 +86,12 @@ Vaccine* findVaccineAvailable(Vaccine *vaccine) {
         return findVaccineAvailable(vaccine->next);
     }
 }
-
+/*************************************************
+ * Imprime lista de vacinas
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: As vacinas são impressos no console
+**************************************************/
 void listVaccines(Vaccine *vaccine) {
     if(vaccine != NULL) {
         printf("    %s \t %s \t %d\n", vaccine->name, vaccine->pharmaceutical, vaccine->inStock);
@@ -71,7 +101,12 @@ void listVaccines(Vaccine *vaccine) {
         }
     }
 }
-
+/*************************************************
+ * Busca vacina
+ * Retorno: Vacina encontrada
+ * Pré-condição: Conter vacinas registradas
+ * Pós-condição: Vacina encontrada
+**************************************************/
 Vaccine* findVaccine(Vaccine *vaccine, char *name) {
     if(vaccine == NULL) {
         return NULL;
@@ -83,7 +118,12 @@ Vaccine* findVaccine(Vaccine *vaccine, char *name) {
 
     findVaccine(vaccine->next, name);
 }
-
+/*************************************************
+ * Imprime dados da estrutura Person
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Imprime no console os dados
+**************************************************/
 void printPersonData(char *name, char *cpf) {
     int i;
     int qnt_spaces =  LEN_NAME - strlen(name);
@@ -93,7 +133,12 @@ void printPersonData(char *name, char *cpf) {
     }
     printf("CPF: %s\n", cpf);
 }
-
+    /*************************************************
+ * Lista as pessoas que receberam as doses da vacina
+ * Retorno: Nenhum
+ * Pré-condição: Habitantes que receberam as doses
+ * Pós-condição: Nenhum
+**************************************************/
 void listByDose(List *people, int dose){
     Node *this = people->head;
 
@@ -109,7 +154,12 @@ void listByDose(List *people, int dose){
         this = this->next;
     }
 }
-
+/*************************************************
+ * Relatorio de vacinas em estoque
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Imprime as vacinas e o seu estoque
+**************************************************/
 void reportStock(Vaccine *vaccine) {
     system(clear);
     printf(" ------------------------------------------\n");
@@ -118,7 +168,12 @@ void reportStock(Vaccine *vaccine) {
 
     listVaccines(vaccine);
 }
-
+/*************************************************
+ * Relatorio de pessoas vacinadas com a primeira dose
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Imprime no console as pessoas vacinadas com a primeira dose
+**************************************************/
 void reportFirstDose(List *people) {
     system(clear);
     printf(" ------------------------------------------------------------\n");
@@ -127,7 +182,12 @@ void reportFirstDose(List *people) {
 
     listByDose(people, 1);
 }
-
+/*************************************************
+ * Relatorio de pessoas vacinadas com a segunda dose
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Imprime no console as pessoas vacinadas com a segunda dose
+**************************************************/
 void reportSecondDose(List *people) {
     system(clear);
     printf(" -----------------------------------------------------------\n");
@@ -136,7 +196,12 @@ void reportSecondDose(List *people) {
 
     listByDose(people, 2);
 }
-
+/*************************************************
+ * Relatorio de pessoas não vacinadas
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Imprime no console as pessoas não vacinadas
+**************************************************/
 void reportWithoutVaccine(List *people) {
     system(clear);
     printf(" ------------------------------------------\n");
@@ -145,7 +210,12 @@ void reportWithoutVaccine(List *people) {
 
     listByDose(people, 0);
 }
-
+/*************************************************
+ * Conta quantas pessoas estao em um grupo de prioridade
+ * Retorno: Quantidade de pessoas no grupo prioritario
+ * Pré-condição: Nenhum
+ * Pós-condição: Quantidade de pessoas contadas em um grupo
+**************************************************/
 int countGroup(List *people, int group) {
     Node *this = people->head;
 
@@ -163,7 +233,12 @@ int countGroup(List *people, int group) {
         this = this->next;
     }
 }
-
+/*************************************************
+ * Relatorio de pessoas por grupo
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Imprime no console as pessoas por grupo prioritario
+**************************************************/
 void reportGroups(List *people) {
     system(clear);
     printf(" ----------------------------------------\n");

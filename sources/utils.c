@@ -1,5 +1,11 @@
 #include "../headers/utils.h"
 
+/*************************************************
+ * Lê um caractere
+ * Retorno: caractere lido
+ * Pré-condição: Nenhum
+ * Pós-condição: Nenhum
+**************************************************/
 char getChar() {
 
 	char character = 0;
@@ -33,7 +39,12 @@ char getChar() {
 
 	return character;
 }
-
+/*************************************************
+ * Imprime uma linha para os menus
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Nenhum
+**************************************************/
 void line (int lineLength) {
 
 	printf("|");
@@ -44,7 +55,12 @@ void line (int lineLength) {
 
 	printf("|\n");
 }
-
+/*************************************************
+ * Imprime uma quantidade de espaços em branco
+ * Retorno: Nenhum
+ * Pré-condição: Nenhum
+ * Pós-condição: Nenhum
+**************************************************/
 void fillSpaces (int numberOfSpaces) {
 	
 	for (int i = 0; i < numberOfSpaces; i++) {
