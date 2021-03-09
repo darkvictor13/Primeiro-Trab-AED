@@ -87,7 +87,7 @@ void registerVaccination(Registry *registry) {
 
     Node *person = searchByCPF(registry->people , cpf);
 
-    if(person != NULL && registry->validGroup <= person->data.priority && person->data.dose < 2) {
+    if(person != NULL && registry->validGroup >= person->data.priority && person->data.dose < 2) {
         if(person->data.vaccine == NULL) {
             person->data.vaccine = findVaccineAvailable(registry->vaccine);
             

@@ -5,11 +5,14 @@
 
 #include "structures/registry_structure.h"
 
+#include <locale.h>
+
 int main (int argc, char *argv[]) {
-    
     Registry registry;
     initRegistry(&registry);
 
+    setlocale(LC_ALL,"");
+    //setlocale(LC_ALL,"portuguese");
     if(argc == 2) {
         registry.people = readFile(argv[1], registry.people);
     }else{
