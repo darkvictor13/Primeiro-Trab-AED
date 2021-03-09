@@ -1,7 +1,7 @@
 #include "../headers/menu.h"
 
 /*************************************************
- * Selecionar a opçao desejada
+ * Selecionar a opção desejada
  * Retorno: Nenhum
  * Pré-condição: Nenhum
  * Pós-condição: Nenhum
@@ -110,7 +110,7 @@ void menuController(Registry *registry) {
 
         selected = getChar();
 
-        sleep(0.01);
+        //nanosleep(10);
     }
 }
 

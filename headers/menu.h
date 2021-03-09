@@ -6,6 +6,8 @@
 #include "../structures/registry_structure.h"
 #include "actions.h"
 #include "utils.h"
+#include <errno.h>
+#include <time.h>
 
 /*************************************************
  * Selecionar a opçao desejada

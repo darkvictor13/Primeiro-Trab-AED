@@ -1,0 +1,4 @@
+- Programa vacina independente do grupo
+- Enter no windows
+- caracteres com acento no windows
+- Função sleep
