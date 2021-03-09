@@ -5,7 +5,7 @@
 \usepackage{titling}
 \usepackage{indentfirst}
 \usepackage{graphicx}
-\graphicspath{{./images/} {/home/victor/Pictures/latex/}}
+%\graphicspath{{./images/} {/home/victor/Pictures/latex/}}
 \usepackage{wrapfig}
 \usepackage{fancyhdr}
 \usepackage{colortbl}
@@ -123,7 +123,7 @@
 Todas as estruturas de dados estão definidas dentro da pasta ``./structures'', tendo como referência a raiz do projeto. As estruturas de dados implementadas são lista encadeada com cabeça e cauda no arquivo ``people\_list\_structure.h''e lista encadeada simples no arquivo ``registry\_structure.h''.
 \subsection{Arquivo ``people\_list\_structure.h''}\label{Arquivo``peoplelist.h''}
 \subsubsection{Estrutura ``Person''}\label{Estrutura ``Person''}
-
+A estrutura ``Person'' armazena todos os dados para o cadastro dos habitantes, como também a prioridade desse habitante receber vacina e se já recebeu alguma dose da vacina.
 \begin{lstlisting}
 typedef struct {
     char *name;         // required
@@ -140,6 +140,7 @@ typedef struct {
 }Person;
 \end{lstlisting}
 \subsubsection{Estrutura ``Node''}\label{Estrutura ``Node''}
+A estrutura ``Node'' define a lista encadeada, onde armazena a estrutura ``Person'' e o ``next'', ou seja, o ponteiro que aponta para a próxima pessoa.
 \begin{lstlisting}
 typedef struct node {
     Person data;
@@ -147,6 +148,7 @@ typedef struct node {
 }Node;
 \end{lstlisting}
 \subsubsection{Estrutura ``List''}\label{Estrutura ``List''}
+A estrutura ``List'' define a cabeça e a cauda da lista encadeada.
 \begin{lstlisting}
 typedef struct {
     struct node *head;
@@ -155,6 +157,7 @@ typedef struct {
 \end{lstlisting}
 \subsection{Arquivo ``registry\_structure.h''}\label{Arquivo ``registry''}
 \subsubsection{Estrutura ``Vaccine''}\label{Estrutura ``Vaccine''}
+A estrutura ``Vaccine'' define o registro das vacinas e o ponteiro da próxima vacina.
 \begin{lstlisting}
 typedef struct vaccine {
     char *name;
@@ -164,6 +167,7 @@ typedef struct vaccine {
 }Vaccine;
 \end{lstlisting}
 \subsubsection{Estrutura ``Registry''}\label{Estrutura ``Registry''}
+A estrutura ``Registry'' contém a lista para os habitantes, o registro da vacina e um \textit{int} validação do grupo prioritário.
 \begin{lstlisting}
 typedef struct {
     List *people;
@@ -173,8 +177,8 @@ typedef struct {
 \end{lstlisting}
 \cleardoublepage
 \section{Uso do software}\label{Uso do software}
-\subsection{Compilando o proograma}\label{Compilando o proograma}
-Todos os arquivos de implementação estão na pasta ``./sources'', sendo assim para realizar o processo de compilação em um sistema operacional Linux que possui o compilador \textbf{GCC}, basta utilizar o comando ``\textbf{gcc main.c sources/*.c}''
+\subsection{Compilando o programa}\label{Compilando o proograma}
+Todos os arquivos de implementação estão na pasta ``./sources'', sendo assim para realizar o processo de compilação em um sistema operacional Linux que possui o compilador \textbf{GCC}, basta utilizar o comando ``\textbf{gcc main.c sources/*.c -o main}'' e após este comando executa-se o arquivo de entrada chamado \textit{input} ``\textbf{main input}''.
 
 Caso o sistema operacional não suporte a abreviação ``*.c'', segue abaixo a lista de todos os arquivos fontes contidos na pasta \textbf{sources}:
 \begin{itemize}
@@ -188,5 +192,33 @@ Caso o sistema operacional não suporte a abreviação ``*.c'', segue abaixo a l
     \item verify.c
 \end{itemize}
 
-Desta forma para compilar o programa sem o uso de expressões regulares, usa-se ``\textbf{gcc main.c sources/actions.c sources/menu.c sources/people\_list.c sources/print\_stdio.c sources/read\_file.c sources/registry.c sources/utils.c sources/verify.c}''.
+Desta forma para compilar o programa sem o uso de expressões regulares, usa-se ``\textbf{gcc main.c sources/actions.c sources/menu.c sources/people\_list.c sources/print\_stdio.c sources/read\_file.c sources/registry.c sources/utils.c sources/verify.c -o main}''.
+
+\subsection{Execução do software}\label{Execução do software}
+Para a execução do programa Sistema de Controle de Vacinas é apresentado uma tela inicial de interface mostrado na Figura \ref{telainicial}. O Menu Principal apresenta as funcionalidades do programa proposto, como cadastrar habitante, registrar vacinas, relatórios entre outros. Para percorrer por essas opções é necessário utilizar as teclas ``W'' e ``S'', pois ambas foram implementadas para percorrem pelas funcionalidades apresentadas. O Menu Principal é apresentado na Figura \ref{menu}. A opção para verificar os cadastros e registros de vacinas é a ``Emitir relatórios'', mostrado na Figura \ref{relatorio}. Desse modo, o programa é executado por meio do Menu Principal.
+
+\cleardoublepage
+\begin{figure}[h]
+	\caption{Tela inicial do programa}
+	
+	\centering % para centralizarmos a figura
+	\includegraphics[width=10cm]{telaInicial.png} % leia abaixo
+	\label{telainicial}
+\end{figure}
+
+\begin{figure}[h]
+	\caption{Menu Principal}
+	
+	\centering % para centralizarmos a figura
+	\includegraphics[width=10cm]{opcoes.png} % leia abaixo
+	\label{menu}
+\end{figure}
+
+\begin{figure}[!h]
+	\caption{Relatórios de cadastros e vacinas.}
+	
+	\centering % para centralizarmos a figura
+	\includegraphics[width=10cm]{imprimirRelatorio.png} % leia abaixo
+	\label{relatorio}
+\end{figure}
 \end{document}
