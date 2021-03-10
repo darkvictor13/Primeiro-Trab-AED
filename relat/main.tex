@@ -5,7 +5,6 @@
 \usepackage{titling}
 \usepackage{indentfirst}
 \usepackage{graphicx}
-%\graphicspath{{./images/} {/home/victor/Pictures/latex/}}
 \usepackage{wrapfig}
 \usepackage{fancyhdr}
 \usepackage{colortbl}
@@ -17,12 +16,13 @@
 \usepackage{lastpage}
 \usepackage[hyphens]{url}
 \usepackage{hyperref}
-\usepackage[brazilian,hyperpageref]{backref}
-\usepackage[num,overcite,abnt-emphasize=bf]{abntex2cite}
+%\usepackage[brazilian,hyperpageref]{backref}
+%\usepackage[num,overcite,abnt-emphasize=bf]{abntex2cite}
 %%\usepackage[alf,abnt-emphasize=bf]{abntex2cite}
 %%\citebrackets()
-\citebrackets[]
+%\citebrackets[]
 
+\graphicspath{{./images/}}
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
@@ -58,7 +58,7 @@
 
 \author{Victor Emanuel Almeida\and Milena Lucas Dos Santos\and Marco A. Guerra Pedroso}
 \title{1$^{\underbar{o}}$ Trabalho de \materia}
-\date{\today}
+\date{9 de março de 2021}
 
 %% zera a pagina
 \fancyfoot[C]{}
@@ -117,6 +117,7 @@
 \fancyhead[R]{}
 
 \tableofcontents
+\listoffigures
 \newpage
 
 \section{Estruturas de Dados}\label{Estruturas de Dados}
@@ -147,6 +148,7 @@ typedef struct node {
     struct node *next;
 }Node;
 \end{lstlisting}
+\cleardoublepage
 \subsubsection{Estrutura ``List''}\label{Estrutura ``List''}
 A estrutura ``List'' define a cabeça e a cauda da lista encadeada.
 \begin{lstlisting}
@@ -178,7 +180,7 @@ typedef struct {
 \cleardoublepage
 \section{Uso do software}\label{Uso do software}
 \subsection{Compilando o programa}\label{Compilando o proograma}
-Todos os arquivos de implementação estão na pasta ``./sources'', sendo assim para realizar o processo de compilação em um sistema operacional Linux que possui o compilador \textbf{GCC}, basta utilizar o comando ``\textbf{gcc main.c sources/*.c -o main}'' e após este comando executa-se o arquivo de entrada chamado \textit{input} ``\textbf{main input}''.
+Todos os arquivos de implementação estão na pasta ``./sources'', sendo assim para realizar o processo de compilação em um sistema operacional que possui o compilador \textbf{GCC}, basta utilizar o comando ``\textbf{gcc main.c sources/*.c -o main}'' e após este comando executa-se o programa indicando o nome do arquivo de entrada, nesse caso chamado \textit{input} ``\textbf{main input}''.
 
 Caso o sistema operacional não suporte a abreviação ``*.c'', segue abaixo a lista de todos os arquivos fontes contidos na pasta \textbf{sources}:
 \begin{itemize}
@@ -191,8 +193,6 @@ Caso o sistema operacional não suporte a abreviação ``*.c'', segue abaixo a l
     \item utils.c
     \item verify.c
 \end{itemize}
-
-Desta forma para compilar o programa sem o uso de expressões regulares, usa-se ``\textbf{gcc main.c sources/actions.c sources/menu.c sources/people\_list.c sources/print\_stdio.c sources/read\_file.c sources/registry.c sources/utils.c sources/verify.c -o main}''.
 
 \subsection{Execução do software}\label{Execução do software}
 Para a execução do programa Sistema de Controle de Vacinas é apresentado uma tela inicial de interface mostrado na Figura \ref{telainicial}. O Menu Principal apresenta as funcionalidades do programa proposto, como cadastrar habitante, registrar vacinas, relatórios entre outros. Para percorrer por essas opções é necessário utilizar as teclas ``W'' e ``S'', pois ambas foram implementadas para percorrem pelas funcionalidades apresentadas. O Menu Principal é apresentado na Figura \ref{menu}. A opção para verificar os cadastros e registros de vacinas é a ``Emitir relatórios'', mostrado na Figura \ref{relatorio}. Desse modo, o programa é executado por meio do Menu Principal.
