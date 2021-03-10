@@ -1,7 +1,11 @@
 #ifndef MENU
 #define MENU
 
+#ifdef linux
 #define ENTER 10
+#else
+#define ENTER 13
+#endif
 
 #include "../structures/registry_structure.h"
 #include "actions.h"

@@ -173,13 +173,16 @@ void freeVaccineList(Vaccine *vaccine) {
  * Pré-condição: Nenhum
  * Pós-condição: Lista vazia
 **************************************************/
-void freePerson(Person person) {
-    free(person.name);
-    free(person.rg);
-    free(person.cpf);
-    if (person.phone) free(person.phone);
-    if (person.address) free(person.address);
-    if (person.profession) free(person.profession);
+void freePerson(Person *person) {
+    printf("teste person\n");
+    free(person->name);
+    printf("teste person\n");
+    free(person->rg);
+    free(person->cpf);
+    printf("teste person\n");
+    if (person->phone) free(person->phone);
+    if (person->address) free(person->address);
+    if (person->profession) free(person->profession);
 }
 /*************************************************
  * Libera o Nó da lista
@@ -189,7 +192,9 @@ void freePerson(Person person) {
 **************************************************/
 void freeNodes(Node *node) {
     if (node != NULL) {
-        freePerson(node->data);
+	printf("teste node\n");
+        freePerson(&node->data);
+	printf("teste node\n");
         freeNodes(node->next);
         free(node);
     }
@@ -201,6 +206,15 @@ void freeNodes(Node *node) {
  * Pós-condição: Lista vazia
 **************************************************/
 void freeList(List *list) {
-    freeNodes(list->head);
+    Node* aux = list->head;
+    while (list->head != list->tail) {
+        freePerson(&list->head->data);
+        free(aux);
+        aux = list->head;
+        list->head = list->head->next;
+    }
+    free(list->tail);
     free(list);
+
+
 }

@@ -103,7 +103,7 @@ void freeVaccineList(Vaccine *vaccine);
  * Pré-condição: Nenhum
  * Pós-condição: Lista vazia
 **************************************************/
-void freePerson(Person person);
+void freePerson(Person *person);
 /*************************************************
  * Libera o Nó da lista
  * Retorno: Nenhum

@@ -24,6 +24,8 @@
 #include <termios.h>
 #else
 #include <conio.h>
+#include <wchar.h>
+#include <windows.h>
 #endif
 
 
